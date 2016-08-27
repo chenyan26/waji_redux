@@ -1,3 +1,6 @@
+//App
+export AppContainer from './AppContainer';
+
 //首页
 // export HomeContainer from './HomeContainer';
 
@@ -10,7 +13,7 @@
 // export Home from './CircleDetailPage';
 
 //我的
-export InfoContainer from './my/InfoContainer';
+export InfoContainer from './InfoContainer';
 
 //登录、注册、忘记密码
 // export Home from './LoginPage';

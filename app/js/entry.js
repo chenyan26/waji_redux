@@ -21,7 +21,8 @@ import '../i/touch/ms-touch-icon-144x144-precomposed.png';
 import '../style/app.scss'
 
 // load App
-import './containers/App'
+// import './containers/App'
+import './coute'
 
 //jquery
 import 'jquery'
