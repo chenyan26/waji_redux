@@ -1,4 +1,4 @@
-import React, { Component, PropTypes }  from 'react';
+import React from 'react';
 import {
   Container,
   List,
@@ -10,26 +10,22 @@ import {
   Link,
 } from 'react-router';
 
-export default class My extends React.Component {
+export default class CircleContainer extends React.Component {
 
   renderItems() {
     const pages = [
-      'info',
-      'setting',
-    ];
-
-    const titles = [
-      '个人信息',
-      '设置',
+      '世界圈',
+      '朋友圈',
     ];
 
     return pages.map((item, index) => {
       return (
+
         <List.Item
           linkComponent={Link}
           // 传递 query 参数
-          linkProps={{to: {pathname: `/my/${item}`, query: {type: titles[index]}}}}
-          title={titles[index]}
+          linkProps={{to: {pathname: `/${item.toLowerCase()}`, query: {q: item}}}}
+          title={item}
           key={index}
         />
       );
@@ -48,7 +44,7 @@ export default class My extends React.Component {
       <View>
         <NavBar
           amStyle="primary"
-          title="我的"
+          title="世界圈"
           rightNav= {[downloadNav]}
         />
         <Container scrollable>

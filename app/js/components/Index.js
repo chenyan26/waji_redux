@@ -9,7 +9,7 @@ export Home from './Home';
 export Circle from './Circle';
 
 //我的
-export My from './My';
+// export My from './My';
 // export Info from './My/Info';
 // export Setting from './My/Setting';
 

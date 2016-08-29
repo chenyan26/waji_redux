@@ -1,7 +1,9 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import * as MyActions from '../redux/actions/MyActions';
+import * as MyActions from '../../redux/actions/MyActions';
 import { bindActionCreators } from 'redux';
+
+import * as AppActions from '../../redux/actions/AppActions';
 
 import {
   View,
@@ -17,12 +19,16 @@ class InfoContainer extends React.Component {
   //   this.clickss = this.clickss.bind(this);
   // }
 
+  componentWillMount() {
+    const { appActions } = this.props;
+    appActions.hideTabbar(true)
+  }
+
   render() {
     const downloadNav = {
       component: 'a', // 默认为 `a`
       title: '下载App',
       href: 'http://fir.im/wwkj',
-      onlyActiveOnIndex: true,
     };
 
     const backNav = {
@@ -30,10 +36,9 @@ class InfoContainer extends React.Component {
       icon: 'left-nav',
       // title: '返回',
       to: '/my',
-      onlyActiveOnIndex: true,
     };
 
-    const {account} = this.props
+    const {account} = this.props;
 
     return (
       <View>
@@ -55,16 +60,17 @@ class InfoContainer extends React.Component {
   // }
 
   clickss = () => {
-    const {actions} = this.props
-    actions.setName("555555")
+    const {myActions} = this.props;
+    myActions.setName("555555")
   }
 
 }
 
 InfoContainer.propTypes = {
   account: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired
-}
+  myActions: PropTypes.object.isRequired,
+  appActions: PropTypes.object.isRequired
+};
 
 function mapStateToProps(state) {
   return {
@@ -74,7 +80,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions : bindActionCreators(MyActions, dispatch)
+    myActions : bindActionCreators(MyActions, dispatch),
+    appActions : bindActionCreators(AppActions, dispatch)
   }
 }
 

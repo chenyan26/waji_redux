@@ -2,7 +2,7 @@
  * action 类型
  */
 export const SET_NAME = 'SET_NAME';
-export const SET_NUMBER = 'SET_NUMBER'
+export const SET_NUMBER = 'SET_NUMBER';
 
 /*
  * action 创建函数

@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import * as MyActions from '../redux/actions/AppActions';
 import { bindActionCreators } from 'redux';
 
 import {
@@ -11,61 +10,55 @@ import {
   TabBar,
 } from 'amazeui-touch';
 
-import {
-  Home,
-  Circle,
-  My,
-} from '../components';
-
-import {
-  InfoContainer
-} from '../containers';
-
 class AppContainer extends React.Component {
   static contextTypes = {
     router: React.PropTypes.object.isRequired,
   };
 
   constructor(props) {
-    super(props)
+    super(props);
     this.renderTabBar = this.renderTabBar.bind(this);
   }
 
-  renderTabBar() {
-    const {
-      router
-    } = this.context;
+  // clickss = () => {
+  //   const {actions} = this.props
+  //   actions.hideTabbar(true)
+  // }
 
-    return(
-      <TabBar
-        amStyle="primary"
-      >
-        <TabBar.Item
-          component={Link}
-          icon="home"
-          title="首页"
-          selected={router.isActive('/', true)}
-          to="/"
-          onlyActiveOnIndex
-        />
-        <TabBar.Item
-          component={Link}
-          icon="pages"
-          title="世界圈"
-          selected={router.isActive('/circle', true)}
-          to="/circle"
-          onlyActiveOnIndex
-        />
-        <TabBar.Item
-          component={Link}
-          icon="person"
-          title="我的"
-          selected={router.isActive('/my', true)}
-          to="/my"
-          onlyActiveOnIndex
-        />
-      </TabBar>
-    )
+  renderTabBar() {
+    const { router } = this.context;
+
+    const { appObj} = this.props;
+
+    if (! appObj.isHideTabbar) {
+      return(
+        <TabBar
+          amStyle="primary"
+        >
+          <TabBar.Item
+            component={Link}
+            icon="home"
+            title="首页"
+            selected={router.isActive('/', true)}
+            to="/"
+          />
+          <TabBar.Item
+            component={Link}
+            icon="pages"
+            title="世界圈"
+            selected={router.isActive('/circle', true)}
+            to="/circle"
+          />
+          <TabBar.Item
+            component={Link}
+            icon="person"
+            title="我的"
+            selected={router.isActive('/my', true)}
+            to="/my"
+          />
+        </TabBar>
+      )
+    }
   }
 
   render() {
@@ -95,4 +88,14 @@ class AppContainer extends React.Component {
   }
 }
 
-export default AppContainer
+AppContainer.propTypes = {
+  appObj: PropTypes.object.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    appObj: state.appObj
+  }
+}
+
+export default connect(mapStateToProps,)(AppContainer)

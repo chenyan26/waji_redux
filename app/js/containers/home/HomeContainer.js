@@ -10,7 +10,7 @@ import {
   Link,
 } from 'react-router';
 
-export default class Home extends React.Component {
+export default class HomeContainer extends React.Component {
   static defaultProps = {
     transition: 'rfr'
   };
@@ -63,11 +63,8 @@ export default class Home extends React.Component {
           title="挖挖"
           rightNav= {[downloadNav]}
         />
-        <Container scrollable>
-          <Group
-
-            noPadded
-          >
+        <Container>
+          <Group noPadded>
             <List>
               {this.renderItems()}
             </List>

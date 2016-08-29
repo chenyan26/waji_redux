@@ -2,7 +2,7 @@
  * action 类型
  */
 export const GET_SELLS = 'GET_SELLS';
-export const GET_SELLBYID = 'GET_SELLBYID'
+export const GET_SELLBYID = 'GET_SELLBYID';
 
 /*
  * action 创建函数

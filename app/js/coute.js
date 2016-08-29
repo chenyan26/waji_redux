@@ -1,6 +1,5 @@
 import React from 'react';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
 import configureStore from './redux/store/configureStore'
 
 import {
@@ -11,19 +10,15 @@ import {
   Router,
   Route,
   IndexRoute,
-  hashHistory,
-  withRouter,
+  hashHistory
 } from 'react-router';
 
 import {
-  Home,
-  Circle,
-  My,
-} from './components';
-
-import {
   AppContainer,
-  InfoContainer
+  HomeContainer,
+  CircleContainer,
+  MyContainer,
+  InfoContainer,
 } from './containers';
 
 const store = configureStore()
@@ -33,11 +28,11 @@ const routes = (
    <Router history={hashHistory}>
      <Route path="/" component={AppContainer}>
 
-       <Route path='circle' component={Circle}>
+       <Route path='circle' component={CircleContainer}>
 
        </Route>
 
-       <Route path='my' component={My} />
+       <Route path='my' component={MyContainer} />
        <Route path="my/info" component={InfoContainer} />
 
        {/* <Route path=":page" component={Page}> */}
@@ -45,7 +40,7 @@ const routes = (
        {/* </Route> */}
 
        {/* <Route path="home/:page" component={HomeContainer} /> */}
-       <IndexRoute component={Home} />
+       <IndexRoute component={HomeContainer} />
 
      </Route>
    </Router>
