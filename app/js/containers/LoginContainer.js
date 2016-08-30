@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import * as AppActions from '../../redux/actions/AppActions';
+import * as AppActions from '../redux/actions/AppActions';
 
 import {
   Container,
@@ -13,13 +13,12 @@ import {
   Link,
 } from 'react-router';
 
-class HomeContainer extends React.Component {
+class LoginContainer extends React.Component {
 
   componentWillMount() {
     const { dispatch } = this.props;
     dispatch(AppActions.hideTabbar(false));
-    dispatch(AppActions.hideNavLeft(true));
-    dispatch(AppActions.setNavTitle('首页'));
+    dispatch(AppActions.setNavTitle('登录'));
   }
 
   renderItems() {
@@ -70,4 +69,4 @@ class HomeContainer extends React.Component {
   }
 }
 
-export default connect()(HomeContainer)
+export default connect()(LoginContainer)

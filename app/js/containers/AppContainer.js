@@ -8,6 +8,7 @@ import {
 import {
   Container,
   TabBar,
+  NavBar,
 } from 'amazeui-touch';
 
 class AppContainer extends React.Component {
@@ -28,7 +29,7 @@ class AppContainer extends React.Component {
   renderTabBar() {
     const { router } = this.context;
 
-    const { appObj} = this.props;
+    const { appObj } = this.props;
 
     if (! appObj.isHideTabbar) {
       return(
@@ -66,13 +67,44 @@ class AppContainer extends React.Component {
       location,
       params,
       children,
+
+      appObj,
+
       ...props,
     } = this.props;
 
+    //转场动画名称，如不设置则没有转场动画
+    //sfr: show from right
     const transition = children.props.transition || 'sfr';
+
+    let icon = "left-nav";
+    if (appObj.isHideNavLeft) {
+      icon = "";
+    }
+
+    const backNav = {
+      component: Link,
+      // icon: 'left-nav',
+      icon:icon,
+      // title: '返回',
+      // to: '/my',
+      to:appObj.navBackLink
+    };
+
+    const downloadNav = {
+      component: 'a', // 默认为 `a`
+      title: '下载App',
+      href: 'http://fir.im/wwkj',
+    };
 
     return (
       <Container direction="column" id="sk-container">
+        <NavBar
+          amStyle="primary"
+          title={[appObj.navTitle]}
+          leftNav={[backNav]}
+          rightNav= {[downloadNav]}
+        />
         <Container
           transition={transition}
           // fade transition example

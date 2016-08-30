@@ -6,7 +6,6 @@ import * as AppActions from '../../redux/actions/AppActions';
 import {
   Container,
   List,
-  NavBar,
   Group,
   View,
 } from 'amazeui-touch';
@@ -18,7 +17,9 @@ class MyContainer extends React.Component {
 
   componentWillMount() {
     const { dispatch } = this.props;
-    dispatch(AppActions.hideTabbar(false))
+    dispatch(AppActions.hideTabbar(false));
+    dispatch(AppActions.hideNavLeft(true));
+    dispatch(AppActions.setNavTitle('我的'));
   }
 
   renderItems() {
@@ -46,20 +47,9 @@ class MyContainer extends React.Component {
   }
 
   render() {
-    const downloadNav = {
-      component: 'a', // 默认为 `a`
-      title: '下载App',
-      href: 'http://fir.im/wwkj',
-    };
-
     return (
       <View>
-        <NavBar
-          amStyle="primary"
-          title="我的"
-          rightNav= {[downloadNav]}
-        />
-        <Container>
+        <Container scrollable>
           <Group noPadded> {/*是否移除分组内容的 padding*/}
             <List>
               {this.renderItems()}

@@ -17,6 +17,7 @@
     "babel-core": "^6.11.4",
     "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.4",
+    "babel-plugin-lodash": "^3.2.8",
     "babel-plugin-transform-object-assign": "^6.8.0",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-preset-es2015": "^6.9.0",
@@ -59,9 +60,17 @@
     "preview": "npm run build && browser-sync start --server dist"
   },
   "dependencies": {
+    "babel-polyfill": "^6.13.0",
     "classnames": "^2.2.5",
+    "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.1.0",
+    "lodash": "^4.15.0",
+    "normalizr": "^2.2.1",
     "react-redux": "^4.4.5",
-    "redux": "^3.5.2"
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.5.2",
+    "redux-api-middleware": "^1.0.2",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.1.0"
   }
 }

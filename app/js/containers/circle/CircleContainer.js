@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Container,
   List,
-  NavBar,
   Group,
   View,
 } from 'amazeui-touch';
@@ -10,7 +9,7 @@ import {
   Link,
 } from 'react-router';
 
-export default class CircleContainer extends React.Component {
+class CircleContainer extends React.Component {
 
   renderItems() {
     const pages = [
@@ -33,25 +32,10 @@ export default class CircleContainer extends React.Component {
   }
 
   render() {
-    const downloadNav = {
-      component: 'a', // 默认为 `a`
-      title: '下载App',
-      href: 'http://fir.im/wwkj',
-      onlyActiveOnIndex: true,
-    };
-
     return (
       <View>
-        <NavBar
-          amStyle="primary"
-          title="世界圈"
-          rightNav= {[downloadNav]}
-        />
         <Container scrollable>
-          <Group
-
-            noPadded
-          >
+          <Group noPadded>
             <List>
               {this.renderItems()}
             </List>
@@ -61,3 +45,5 @@ export default class CircleContainer extends React.Component {
     );
   }
 }
+
+export default CircleContainer

@@ -3,6 +3,7 @@ export AppContainer from './AppContainer';
 
 //首页
 export HomeContainer from './home/HomeContainer';
+export SellContainer from './home/SellContainer';
 
 //详细信息
 // export Home from './DetailPage';
@@ -16,5 +17,5 @@ export CircleContainer from './circle/CircleContainer';
 export MyContainer from './my/MyContainer';
 export InfoContainer from './my/InfoContainer';
 
-//登录、注册、忘记密码
-// export Home from './LoginPage';
+//登录
+export LoginContainer from './LoginContainer';

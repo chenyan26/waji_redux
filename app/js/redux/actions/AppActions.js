@@ -4,6 +4,7 @@
 export const HIDE_TABBAR = 'HIDE_TABBAR';
 export const SET_NAV_TITLE = 'SET_NAV_TITLE';
 export const HIDE_NAV_LEFT = 'HIDE_NAV_LEFT';
+export const SET_NAV_BACK_LINK = 'SET_NAV_BACK_LINK';
 
 /*
  * action 创建函数
@@ -18,4 +19,8 @@ export function setNavTitle(title) {
 
 export function hideNavLeft(bool) {
   return { type: HIDE_NAV_LEFT, bool}
+}
+
+export function setNavBackLink(link) {
+  return { type: SET_NAV_BACK_LINK, link}
 }
