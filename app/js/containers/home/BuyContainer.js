@@ -55,7 +55,7 @@ class BuyContainer extends React.Component {
     appActions.setNavTitle('买车信息');
 
     //如没有 缓存 则 获取buys
-    if (! buys.buyArray) {
+    if (! buys.loadState.success) {
       homeActions.getBuys();
     }
   }
@@ -77,11 +77,14 @@ class BuyContainer extends React.Component {
                 desc={buy.place}
                 target="_blank"
                 key={i}
+
+                linkComponent={Link}
+                linkProps={{to: {pathname: `/buy/${buy.id}`,query: {item: `${i}`}}}}
               />
             );
           })}
         </List>
-          <Button amStyle="primary" block>加载更多</Button>
+          <Button amStyle="primary" block>下载App查看更多</Button>
         </div>
       )
     }

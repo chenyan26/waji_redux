@@ -1,55 +1,44 @@
 import { CALL_API } from 'redux-api-middleware';
-import { normalize, Schema, arrayOf } from 'normalizr';
-
-// import { BuyModel } from '../../models';
+// import { normalize, Schema, arrayOf } from 'normalizr';
 
 const Home_API = 'http://eswjdg.com/index.php?m=mmapi&c=sale&a=get_pub';
 
 /*
  * 普通
  */
+
+export const SET_BUY_ITEM = 'SET_BUY_ITEM';
 /*
-export const GET_SELLS = 'GET_SELLS';
 export const GET_SELLBYID = 'GET_SELLBYID';
 
 export function getSells() {
   return { type: GET_SELLS}
 }
-
-export function getSellById(id) {
-  return { type: GET_SELLBYID, id}
-}
 */
+export function setBuyItem(item) {
+  return { type: SET_BUY_ITEM, item}
+}
 
 /*
  * 获取 卖车信息 -------------------------------------------------------
  */
 const Base_API = 'http://localhost:8080/sell';
 
-export const GETSELLS_REQUEST = 'GETSELLS_REQUEST';
-export const GETSELLS_SUCCESS = 'GETSELLS_SUCCESS';
-export const GETSELLS_FAILURE = 'GETSELLS_FAILURE';
+export const GET_SELLS_REQUEST = 'GET_SELLS_REQUEST';
+export const GET_SELLS_SUCCESS = 'GET_SELLS_SUCCESS';
+export const GET_SELLS_FAILURE = 'GET_SELLS_FAILURE';
 
 export function getSells() {
   return {
     [CALL_API]: {
       endpoint: `${Base_API}`,
       method:'POST',
-      types: ['GETSELLS_REQUEST', 'GETSELLS_SUCCESS', 'GETSELLS_FAILURE'],
+      types: [
+        {type :'GET_SELLS_REQUEST'},
+        {type :'GET_SELLS_SUCCESS', payload: (action, state, res) => res.json()},
+        'GET_SELLS_FAILURE'
+      ]
     }
-  }
-}
-
-function getSellsRequest() {
-  return {
-    type: 'GETSELLS_REQUEST',
-  }
-}
-
-function getSellsSuccess() {
-  return {
-    type: 'GETSELLS_SUCCESS',
-    payload: (action, state, res) => getJSON(res)
   }
 }
 
@@ -74,20 +63,11 @@ export function getBuys() {
       endpoint: `${Home_API}`,
       method:'POST',
       body:buyFormData,
-      types: ['GET_BUYS_REQUEST', 'GET_BUYS_SUCCESS', 'GET_BUYS_FAILURE'],
+      types: [
+        {type :'GET_BUYS_REQUEST'},
+        {type :'GET_BUYS_SUCCESS', payload: (action, state, res) => res.json()},
+        {type :'GET_BUYS_FAILURE'}
+      ]
     }
-  }
-}
-
-function getBuysRequest() {
-  return {
-    type: 'GET_BUYS_REQUEST',
-  }
-}
-
-function getBuysSuccess() {
-  return {
-    type: 'GET_BUYS_SUCCESS',
-    payload: (action, state, res) => getJSON(res)
   }
 }

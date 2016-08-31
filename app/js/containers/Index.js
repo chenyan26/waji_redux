@@ -5,6 +5,7 @@ export AppContainer from './AppContainer';
 export HomeContainer from './home/HomeContainer';
 export SellContainer from './home/SellContainer';
 export BuyContainer from './home/BuyContainer';
+export BuyDetailContainer from './home/BuyDetailContainer';
 
 //详细信息
 // export Home from './DetailPage';

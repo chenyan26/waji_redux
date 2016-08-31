@@ -1,4 +1,8 @@
-  import { GETSELLS_REQUEST, GETSELLS_SUCCESS, GET_BUYS_REQUEST, GET_BUYS_SUCCESS } from '../actions/HomeActions'
+import {
+  SET_BUY_ITEM,
+  GETSELLS_REQUEST, GETSELLS_SUCCESS,
+  GET_BUYS_REQUEST, GET_BUYS_SUCCESS, GET_BUYS_FAILURE,
+} from '../actions/HomeActions'
 
 // const initialState =
 // {
@@ -22,8 +26,14 @@
     }
   }
 
-  export function buys(state = {loadState : {loading: false, success: false, failure: false}}, action) {
+  export function buys(state = {
+    loadState : {loading: false, success: false, failure: false},
+  }, action) {
     switch (action.type) {
+      case SET_BUY_ITEM:
+        return Object.assign({}, state, {
+          buyItem: action.item,
+        });
       case GET_BUYS_REQUEST:
         return Object.assign({}, state, {
           loadState: {loading: true, success: false, failure: false},
@@ -32,6 +42,10 @@
         return Object.assign({}, state, {
           loadState: {loading: false, success: true, failure: false},
           buyArray: action.payload
+        });
+      case GET_BUYS_FAILURE:
+        return Object.assign({}, state, {
+          loadState: {loading: false, success: false, failure: true},
         });
       default:
         return state

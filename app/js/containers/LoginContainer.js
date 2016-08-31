@@ -58,7 +58,7 @@ class LoginContainer extends React.Component {
     return (
       <View>
         <Container scrollable>
-          <Group noPadded>
+          <Group>
             <List>
               {this.renderItems()}
             </List>

@@ -21,6 +21,7 @@ import {
   HomeContainer,
   SellContainer,
   BuyContainer,
+  BuyDetailContainer,
   CircleContainer,
   MyContainer,
   InfoContainer,
@@ -49,6 +50,9 @@ const routes = (
 
        <Route path="home/sell" component={SellContainer}/>
        <Route path="home/buy" component={BuyContainer}/>
+
+       <Route path="buy/:id" component={BuyDetailContainer}/>
+
        <IndexRoute component={HomeContainer} />
 
      </Route>
