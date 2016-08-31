@@ -122,11 +122,15 @@ class AppContainer extends React.Component {
 
 AppContainer.propTypes = {
   appObj: PropTypes.object.isRequired,
+  buys: PropTypes.object.isRequired,
+  sells: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
-    appObj: state.appObj
+    appObj: state.appObj,
+    buys: state.buys,
+    sells: state.sells,
   }
 }
 

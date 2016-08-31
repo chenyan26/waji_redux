@@ -22,7 +22,28 @@ outMap['/test/111'] = {
     title: 'Some Article',
     author: {id: 7, name: 'Dan'},
     contributors: [{id: 10, name: 'Abe'}, {id: 15, name: 'Fred'}]
-  };
+};
+
+outMap['/sell'] = [
+  {
+  id: 1,
+  title: 'Some Article',
+  author: {id: 7, name: 'Dan'},
+  contributors: [{id: 10, name: 'Abe'}, {id: 15, name: 'Fred'}]
+  },
+  {
+    id: 2,
+    title: 'Some Article',
+    author: {id: 7, name: 'Dan'},
+    contributors: [{id: 10, name: 'Abe'}, {id: 15, name: 'Fred'}]
+  },
+  {
+    id: 3,
+    title: 'Some Article',
+    author: {id: 7, name: 'Dan'},
+    contributors: [{id: 10, name: 'Abe'}, {id: 15, name: 'Fred'}]
+  }
+  ];
 
 
 //------------------------------------------------------------------------------------------
@@ -51,6 +72,7 @@ function handler(request, response) {
     }
 
     response.setHeader('Content-Type', 'application/json');
+  // response.setHeader('Content-Type', 'text/html');
 
   /*
      解决下面这个问题:

@@ -18,13 +18,12 @@ export function setNumber(text) {
 /*
  * 根据 username 获取 account
  */
-export const GET_ACCOUNT = 'GET_ACCOUNT';
 
 const Base_API = 'http://localhost:8080/account/';
 
-export const GETACCOUNT_REQUEST = 'GETACCOUNT_REQUEST'
-export const GETACCOUNT_SUCCESS = 'GETACCOUNT_SUCCESS'
-export const GETACCOUNT_FAILURE = 'GETACCOUNT_FAILURE'
+export const GETACCOUNT_REQUEST = 'GETACCOUNT_REQUEST';
+export const GETACCOUNT_SUCCESS = 'GETACCOUNT_SUCCESS';
+export const GETACCOUNT_FAILURE = 'GETACCOUNT_FAILURE';
 
 export function getAccount(username) {
   return {

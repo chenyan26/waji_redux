@@ -26,3 +26,11 @@ $ratchicons-path: "../../node_modules/amazeui-touch/fonts/";
   opacity: 0.01;
   transition: opacity 300ms ease-in;
 }
+
+
+//----------------------- 自己添加的样式
+// 显示在 中间
+.cy-empty-loader {
+  width: 100%;
+  margin-top: 100px;
+}

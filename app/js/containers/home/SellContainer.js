@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-// import * as MyActions from '../../redux/actions/MyActions';
+import * as HomeActions from '../../redux/actions/HomeActions';
 import { bindActionCreators } from 'redux';
 
 import * as AppActions from '../../redux/actions/AppActions';
@@ -20,39 +20,45 @@ const img40 = <img width="48" src="http://lorempixel.com/160/160/people/" />;
 const albums = [
   {
     title: '小松',
-    subTitle: '小时数: 400',
+    subTitle: '价格: 40万元',
     after: '2012-9-25',
-    desc: '价格: 40万元'
+    desc: '湖南省 长沙市 天心区'
   },
   {
     title: '小松',
-    subTitle: '小时数: 400',
+    subTitle: '价格: 40万元',
     after: '2012-9-25',
-    desc: '价格: 40万元'
+    desc: '湖南省 长沙市 天心区'
   },
   {
     title: '小松',
-    subTitle: '小时数: 400',
+    subTitle: '价格: 40万元',
     after: '2012-9-25',
-    desc: '价格: 40万元'
+    desc: '湖南省 长沙市 天心区'
   },
   {
     title: '小松',
-    subTitle: '小时数: 400',
+    subTitle: '价格: 40万元',
     after: '2012-9-25',
-    desc: '价格: 40万元'
+    desc: '湖南省 长沙市 天心区'
   },
   {
     title: '小松',
-    subTitle: '小时数: 400',
+    subTitle: '价格: 40万元',
     after: '2012-9-25',
-    desc: '价格: 40万元'
+    desc: '湖南省 长沙市 天心区'
   },
   {
     title: '小松',
-    subTitle: '小时数: 400',
+    subTitle: '价格: 40万元',
     after: '2012-9-25',
-    desc: '价格: 40万元'
+    desc: '湖南省 长沙市 天心区'
+  },
+  {
+    title: '小松',
+    subTitle: '价格: 40万元',
+    after: '2012-9-25',
+    desc: '湖南省 长沙市 天心区'
   },
 ];
 
@@ -70,13 +76,18 @@ class SellContainer extends React.Component {
     appActions.setNavTitle('卖车信息');
   }
 
+  clickss = ()=> {
+    const { homeActions } = this.props;
+    homeActions.getSells()
+  };
+
   render() {
     // const {account} = this.props;
 
     return (
       <View>
-      <Container scrollable
-                 {...this.props}>
+        <button onClick={this.clickss}>点击</button>
+      <Container scrollable>
           <List>
             {albums.map((album, i) => {
               return (
@@ -99,20 +110,20 @@ class SellContainer extends React.Component {
 }
 
 SellContainer.propTypes = {
-  // account: PropTypes.object.isRequired,
-  // myActions: PropTypes.object.isRequired,
+  sells: PropTypes.object.isRequired,
+  homeActions: PropTypes.object.isRequired,
   appActions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    account: state.account
+    sells: state.sells
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    // myActions : bindActionCreators(MyActions, dispatch),
+    homeActions : bindActionCreators(HomeActions, dispatch),
     appActions : bindActionCreators(AppActions, dispatch)
   }
 }
