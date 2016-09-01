@@ -29,8 +29,14 @@ $ratchicons-path: "../../node_modules/amazeui-touch/fonts/";
 
 
 //----------------------- 自己添加的样式
-// 显示在 中间
+// 空时 loader
 .cy-empty-loader {
   width: 100%;
   margin-top: 100px;
 }
+
+//显示在 底部 的 button
+//.cy-bottom-button {
+//  position:fixed;
+//  bottom:0;
+//}

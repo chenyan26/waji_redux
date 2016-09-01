@@ -19,8 +19,7 @@ import {
   AppContainer,
   LoginContainer,
   HomeContainer,
-  SellContainer,
-  BuyContainer,
+  HomeTypeContainer,
   BuyDetailContainer,
   CircleContainer,
   MyContainer,
@@ -48,8 +47,7 @@ const routes = (
 
        {/* <Route path="home/:page" component={HomeContainer} /> */}
 
-       <Route path="home/sell" component={SellContainer}/>
-       <Route path="home/buy" component={BuyContainer}/>
+       <Route path="home/:type" component={HomeTypeContainer}/>
 
        <Route path="buy/:id" component={BuyDetailContainer}/>
 

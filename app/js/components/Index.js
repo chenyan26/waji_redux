@@ -1,12 +1,12 @@
-//首页
-export Home from './Home';
-// export Sell from './Home/Sell';
+
+export Buy from './Buy';
+export Sell from './Sell';
 
 //详细信息
 // export DetailPage from './DetailPage';
 
 //朋友圈
-export Circle from './Circle';
+// export Circle from './Circle';
 
 //我的
 // export My from './My';

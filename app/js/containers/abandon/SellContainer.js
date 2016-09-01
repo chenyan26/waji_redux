@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import * as HomeActions from '../../redux/actions/HomeActions';
+import * as HomeActions from '../../../redux/actions/HomeActions';
 import { bindActionCreators } from 'redux';
 
-import * as AppActions from '../../redux/actions/AppActions';
+import * as AppActions from '../../../redux/actions/AppActions';
 
 import {
   Container,

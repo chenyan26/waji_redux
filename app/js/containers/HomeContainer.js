@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import * as AppActions from '../../redux/actions/AppActions';
+import * as AppActions from '../redux/actions/AppActions';
 
 import {
   Container,
@@ -13,32 +13,42 @@ import {
   Link,
 } from 'react-router';
 
-class MyContainer extends React.Component {
+class HomeContainer extends React.Component {
 
   componentWillMount() {
     const { dispatch } = this.props;
     dispatch(AppActions.hideTabbar(false));
     dispatch(AppActions.hideNavLeft(true));
-    dispatch(AppActions.setNavTitle('我的'));
+    dispatch(AppActions.setNavTitle('首页'));
   }
 
   renderItems() {
     const pages = [
-      'info',
-      'setting',
+      'sell',
+      'buy',
+      'lease',
+      'rent',
+      'hire',
+      'apply',
     ];
 
     const titles = [
-      '个人信息',
-      '设置',
+      '卖车信息',
+      '买车信息',
+      '出租信息',
+      '求租信息',
+      '招聘信息',
+      '求职信息',
     ];
 
     return pages.map((item, index) => {
       return (
+
         <List.Item
           linkComponent={Link}
           // 传递 query 参数
-          linkProps={{to: {pathname: `/my/${item}`, query: {type: titles[index]}}}}
+          //linkProps={{to: {pathname: `/home/${item}`, query: {type: titles[index]}}}}
+          linkProps={{to: {pathname: `/home/${item}`}}}
           title={titles[index]}
           key={index}
         />
@@ -50,7 +60,7 @@ class MyContainer extends React.Component {
     return (
       <View>
         <Container scrollable>
-          <Group noPadded> {/*是否移除分组内容的 padding*/}
+          <Group noPadded>
             <List>
               {this.renderItems()}
             </List>
@@ -61,4 +71,4 @@ class MyContainer extends React.Component {
   }
 }
 
-export default connect()(MyContainer)
+export default connect()(HomeContainer)

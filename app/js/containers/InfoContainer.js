@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import * as MyActions from '../../redux/actions/MyActions';
+import * as MyActions from '../redux/actions/MyActions';
 import { bindActionCreators } from 'redux';
 
-import * as AppActions from '../../redux/actions/AppActions';
+import * as AppActions from '../redux/actions/AppActions';
 
 import {
   View,
