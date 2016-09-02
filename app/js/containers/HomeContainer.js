@@ -28,7 +28,7 @@ class HomeContainer extends React.Component {
       'buy',
       'lease',
       'rent',
-      'hire',
+      'recruit',
       'apply',
     ];
 

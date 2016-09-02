@@ -7,17 +7,6 @@ import * as AppActions from '../redux/actions/AppActions';
 
 import { Buy, Sell } from '../components'
 
-import {
-  Container,
-  List,
-  View,
-  Loader,
-  Button,
-} from 'amazeui-touch';
-import {
-  Link,
-} from 'react-router';
-
 class HomeTypeContainer extends React.Component {
   // constructor(props) {
   //   super(props);
@@ -55,10 +44,8 @@ class HomeTypeContainer extends React.Component {
   render() {
     return (
       <View>
-      <Container scrollable>
         {this.renderComponent()}
-      </Container>
-        </View>
+      </View>
     );
   }
 }

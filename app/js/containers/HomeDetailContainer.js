@@ -1,50 +1,46 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import * as HomeActions from '../redux/actions/HomeActions';
+import * as DetailActions from '../redux/actions/DetailActions';
 import { bindActionCreators } from 'redux';
 
 import * as AppActions from '../redux/actions/AppActions';
 
-import { Buy, Sell } from '../components'
+import { BuyDetail, SellDetail } from '../components'
 
 import {
-  Container,
-  List,
   View,
-  Loader,
-  Button,
 } from 'amazeui-touch';
-import {
-  Link,
-} from 'react-router';
 
-class HomeTypeContainer extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.clickss = this.clickss.bind(this);
-  // }
+class HomeDetailContainer extends React.Component {
 
   componentWillMount() {
     const { appActions } = this.props;
     appActions.hideTabbar(true);
     appActions.hideNavLeft(false);
-    appActions.setNavBackLink('/');
+    appActions.setNavTitle('详细信息');
+    const { type } = this.props.params;
+    appActions.setNavBackLink(`/home/${type}`);
   }
 
   renderComponent = () => {
-    const { appActions, homeActions} = this.props;
-    const { type } = this.props.params;
-    switch (type) {
+    const { detail, detailActions } = this.props;
+
+    const { item } = this.props.location.query;
+    const { params } = this.props;
+
+    switch (params.type) {
       case 'buy':
         const { buys } = this.props;
         return (
-          <Buy buys={buys} homeActions={homeActions} appActions={appActions}/>
+          <BuyDetail buys={buys} item={item} id={params.id}
+                     detail={detail} detailActions={detailActions}/>
         );
         break;
       case 'sell':
         const { sells } = this.props;
         return (
-          <Sell sells={sells} homeActions={homeActions} appActions={appActions}/>
+          <SellDetail sells={sells} item={item} id={params.id}
+                      detail={detail} detailActions={detailActions}/>
         );
         break;
       default:
@@ -55,33 +51,33 @@ class HomeTypeContainer extends React.Component {
   render() {
     return (
       <View>
-      <Container scrollable>
         {this.renderComponent()}
-      </Container>
-        </View>
+      </View>
     );
   }
 }
 
-HomeTypeContainer.propTypes = {
+HomeDetailContainer.propTypes = {
   buys: PropTypes.object.isRequired,
   sells: PropTypes.object.isRequired,
-  homeActions: PropTypes.object.isRequired,
-  appActions: PropTypes.object.isRequired
+  detail: PropTypes.object.isRequired,
+  appActions: PropTypes.object.isRequired,
+  detailActions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
   return {
     buys: state.buys,
-    sells: state.sells
+    sells: state.sells,
+    detail:state.detail
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    homeActions : bindActionCreators(HomeActions, dispatch),
-    appActions : bindActionCreators(AppActions, dispatch)
+    appActions : bindActionCreators(AppActions, dispatch),
+    detailActions : bindActionCreators(DetailActions, dispatch)
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeTypeContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(HomeDetailContainer)

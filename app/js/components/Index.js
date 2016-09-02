@@ -2,6 +2,9 @@
 export Buy from './Buy';
 export Sell from './Sell';
 
+export BuyDetail from './BuyDetail';
+export SellDetail from './SellDetail';
+
 //详细信息
 // export DetailPage from './DetailPage';
 

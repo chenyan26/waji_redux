@@ -54,8 +54,6 @@ const routes = (
 
        <Route path="detail/:type/:id" component={HomeDetailContainer}/>
 
-       {/*<Route path="detail/:id" component={HomeDetailContainer}/>*/}
-
        <IndexRoute component={HomeContainer} />
 
      </Route>

@@ -67,15 +67,13 @@ class AppContainer extends React.Component {
       location,
       params,
       children,
-
       appObj,
-
       ...props,
     } = this.props;
 
     //转场动画名称，如不设置则没有转场动画
     //sfr: show from right
-    const transition = children.props.transition || 'sfr';
+    // const transition = children.props.transition || 'sfr';
 
     let icon = "left-nav";
     if (appObj.isHideNavLeft) {
@@ -106,7 +104,8 @@ class AppContainer extends React.Component {
           rightNav= {[downloadNav]}
         />
         <Container
-          transition={transition}
+          //transition={transition}
+          transition='sfr'
           // fade transition example
           // transition='fade'
           // transitionEnterTimeout={450}

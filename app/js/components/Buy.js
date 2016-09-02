@@ -42,7 +42,7 @@ export default class Buy extends React.Component {
                 key={i}
 
                 linkComponent={Link}
-                linkProps={{to: {pathname: `/buy/${buy.id}`,query: {item: `${i}`}}}}
+                linkProps={{to: {pathname: `/detail/buy/${buy.id}`,query: {item: `${i}`}}}}
               />
             );
           })}
@@ -62,11 +62,9 @@ export default class Buy extends React.Component {
 
   render() {
     return (
-      <View>
       <Container scrollable>
         {this.renderList()}
       </Container>
-        </View>
     );
   }
 }
