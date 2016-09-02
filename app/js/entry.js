@@ -22,7 +22,7 @@ import '../style/app.scss'
 
 // load App
 // import './containers/App'
-import './coute'
+import './router'
 
 //jquery
 import 'jquery'

@@ -3,70 +3,78 @@ import React, { PropTypes } from 'react';
 import {
   Container,
   List,
-  View
+  View,
+  Loader,
+  Button,
 } from 'amazeui-touch';
 import {
   Link,
 } from 'react-router';
 
-const img80 = <img width="80" src="http://lorempixel.com/160/160/people/" />;
-const img40 = <img width="48" src="http://lorempixel.com/160/160/people/" />;
-
-const albums = [
-  {
-    title: '小松',
-    subTitle: '价格: 40万元',
-    after: '2012-9-25',
-    desc: '湖南省 长沙市 天心区'
-  },
-  {
-    title: '小松',
-    subTitle: '价格: 40万元',
-    after: '2012-9-25',
-    desc: '湖南省 长沙市 天心区'
-  }];
-
-export default class Sell extends React.Component {
+export default class Buy extends React.Component {
 
   componentWillMount() {
-    const { appActions } = this.props;
-    appActions.setNavTitle('卖车信息');
+    const { appActions, homeActions, buys} = this.props;
+    appActions.setNavTitle('买车信息');
+
+    //如没有 缓存 则 获取buys
+    if (! buys.loadState.success) {
+      homeActions.getBuys();
+    }
   }
 
-  clickss = ()=> {
-    const { homeActions } = this.props;
-    homeActions.getSells()
+  renderList = ()=> {
+  const { buys } = this.props;
+  const buyArr = buys.buyArray;
+
+    if (buys.loadState.success) {
+      return (
+        <div>
+        <List>
+          {buyArr.map((buy, i) => {
+            return (
+              <List.Item
+                title={buy.brand}
+                subTitle={buy.cartype}
+                after={buy.inputtime}
+                desc={buy.place}
+                target="_blank"
+                key={i}
+
+                linkComponent={Link}
+                linkProps={{to: {pathname: `/buy/${buy.id}`,query: {item: `${i}`}}}}
+              />
+            );
+          })}
+        </List>
+          <Button amStyle="primary" block>下载App查看更多</Button>
+        </div>
+      )
+    }
+    if(buys.loadState.loading) {
+      return(
+        <Loader
+          className="cy-empty-loader"
+          amStyle="primary"/>
+      )
+    }
   };
 
   render() {
     return (
       <View>
-        <button onClick={this.clickss}>点击</button>
       <Container scrollable>
-          <List>
-            {albums.map((album, i) => {
-              return (
-                <List.Item
-                  {...album}
-                  target="_blank"
-                  media={img80}
-                  href = {null}
-                  key={i}
-                  linkComponent={Link}
-                  linkProps={{to: {pathname: '/my'}}}
-                />
-              );
-            })}
-          </List>
+        {this.renderList()}
       </Container>
         </View>
     );
   }
 }
 
-Sell.propTypes = {
-  sells: PropTypes.object.isRequired,
+Buy.propTypes = {
+  buys: PropTypes.object.isRequired,
   homeActions: PropTypes.object.isRequired,
   appActions: PropTypes.object.isRequired
 };
+
 
