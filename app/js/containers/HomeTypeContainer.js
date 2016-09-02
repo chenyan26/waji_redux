@@ -5,6 +5,10 @@ import { bindActionCreators } from 'redux';
 
 import * as AppActions from '../redux/actions/AppActions';
 
+import {
+  View
+} from 'amazeui-touch';
+
 import { Buy, Sell } from '../components'
 
 class HomeTypeContainer extends React.Component {
@@ -14,6 +18,7 @@ class HomeTypeContainer extends React.Component {
   // }
 
   componentWillMount() {
+    console.log("HomeTypeContainer");
     const { appActions } = this.props;
     appActions.hideTabbar(true);
     appActions.hideNavLeft(false);

@@ -24,9 +24,9 @@ export default class Sell extends React.Component {
 
   renderList = ()=> {
   const { sells } = this.props;
-  const sellArr = sells.sellArray;
 
     if (sells.loadState.success) {
+      const sellArr = sells.sellArray;
       return (
         <div>
           <List>
@@ -50,8 +50,7 @@ export default class Sell extends React.Component {
           <Button amStyle="primary" block>下载App查看更多</Button>
         </div>
       )
-    }
-    if(sells.loadState.loading) {
+    } else {
       return(
         <Loader
           className="cy-empty-loader"

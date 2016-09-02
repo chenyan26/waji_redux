@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 
 import {
   Container,
-  View,
   Button,
   Loader,
   Group,
@@ -35,7 +34,7 @@ export default class SellDetail extends React.Component {
         const sellArr = sells.sellArray;
         const sell = sellArr[item];
         return (
-          <Container scrollable>
+          <div>
             <Group>
               <Slider
                 //onAction={onAction}
@@ -61,12 +60,12 @@ export default class SellDetail extends React.Component {
               <p>车辆描述: {sell.description}</p>
             </Group>
             <Button amStyle="primary" block>下载App查看更多</Button>
-          </Container>
+          </div>
         )
       } else {
         const sell = detail.detailObj.data[0];
         return (
-          <Container scrollable>
+          <div>
             <Group>
               <Slider
                 //onAction={onAction}
@@ -92,16 +91,16 @@ export default class SellDetail extends React.Component {
               <p>车辆描述: {sell.description}</p>
             </Group>
             <Button amStyle="primary" block>下载App查看更多</Button>
-          </Container>
+          </div>
         )
       }
     };
 
     render() {
       return (
-        <View>
+        <Container scrollable>
           {this.renderDetail()}
-        </View>
+        </Container>
       );
     }
 }

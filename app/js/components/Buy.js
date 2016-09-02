@@ -3,7 +3,6 @@ import React, { PropTypes } from 'react';
 import {
   Container,
   List,
-  View,
   Loader,
   Button,
 } from 'amazeui-touch';
@@ -19,15 +18,16 @@ export default class Buy extends React.Component {
 
     //如没有 缓存 则 获取buys
     if (! buys.loadState.success) {
+      console.log('dddddd');
       homeActions.getBuys();
     }
   }
 
   renderList = ()=> {
   const { buys } = this.props;
-  const buyArr = buys.buyArray;
 
     if (buys.loadState.success) {
+      const buyArr = buys.buyArray;
       return (
         <div>
         <List>
@@ -50,8 +50,7 @@ export default class Buy extends React.Component {
           <Button amStyle="primary" block>下载App查看更多</Button>
         </div>
       )
-    }
-    if(buys.loadState.loading) {
+    } else {
       return(
         <Loader
           className="cy-empty-loader"

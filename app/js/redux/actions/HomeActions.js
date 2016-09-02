@@ -58,7 +58,7 @@ export function getSells() {
   formData.append("address", "省市");
   formData.append("brand", "品牌");
   formData.append("cartype","");
-  formData.append("catid", 9); //买车
+  formData.append("catid", 9);
   formData.append("pagenow", 1);
   formData.append("price", "价格");
   return {
@@ -87,7 +87,7 @@ export function getRents() {
   formData.append("address", "省市");
   formData.append("brand", "品牌");
   formData.append("cartype","");
-  formData.append("catid", 14); //买车
+  formData.append("catid", 14);
   formData.append("pagenow", 1);
   formData.append("price", "价格");
   return {

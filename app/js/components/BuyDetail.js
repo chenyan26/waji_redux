@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 
 import {
   Container,
-  View,
   Button,
   Loader,
   Group,
@@ -39,7 +38,7 @@ export default class BuyDetail extends React.Component {
         buy = detail.detailObj.data[0];
       }
       return (
-        <Container scrollable>
+        <div>
           <Group>
             <p>品牌: {buy.brand}</p>
             <p>联系人: {buy.contacts}</p>
@@ -50,15 +49,15 @@ export default class BuyDetail extends React.Component {
             <p>买车要求: {buy.description}</p>
           </Group>
           <Button amStyle="primary" block>下载App查看更多</Button>
-        </Container>
+        </div>
       )
     };
 
     render() {
       return (
-        <View>
+        <Container>
           {this.renderDetail()}
-        </View>
+        </Container>
       );
     }
 }
