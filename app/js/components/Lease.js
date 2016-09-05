@@ -10,23 +10,23 @@ import {
   Link,
 } from 'react-router';
 
-export default class Sell extends React.Component {
+export default class Lease extends React.Component {
 
   componentWillMount() {
-    const { appActions, homeActions, sells} = this.props;
-    appActions.setNavTitle('卖车信息');
+    const { appActions, homeActions, leases} = this.props;
+    appActions.setNavTitle('出租信息');
 
-    //如没有 缓存 则 获取sells
-    if (! sells.loadState.success) {
-      homeActions.getSells();
+    //如没有 缓存 则 获取buys
+    if (! leases.loadState.success) {
+      homeActions.getLeases();
     }
   }
 
   renderList = ()=> {
-  const { sells } = this.props;
+  const { leases } = this.props;
 
-    if (sells.loadState.success) {
-      const objArr = sells.sellArray;
+    if (leases.loadState.success) {
+      const objArr = leases.leaseArray;
       return (
         <div>
           <List>
@@ -42,7 +42,7 @@ export default class Sell extends React.Component {
                   media={img80}
                   key={i}
                   linkComponent={Link}
-                  linkProps={{to: {pathname: `/detail/sell/${obj.id}`,query: {item: `${i}`}}}}
+                  linkProps={{to: {pathname: `/detail/lease/${obj.id}`,query: {item: `${i}`}}}}
                 />
               );
             })}
@@ -68,8 +68,8 @@ export default class Sell extends React.Component {
   }
 }
 
-Sell.propTypes = {
-  sells: PropTypes.object.isRequired,
+Lease.propTypes = {
+  leases: PropTypes.object.isRequired,
   homeActions: PropTypes.object.isRequired,
   appActions: PropTypes.object.isRequired
 };

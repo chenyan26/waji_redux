@@ -1,9 +1,12 @@
 
 export Buy from './Buy';
 export Sell from './Sell';
+export Lease from './Lease';
+export Rent from './Rent';
 
 export BuyDetail from './BuyDetail';
 export SellDetail from './SellDetail';
+export LeaseDetail from './LeaseDetail';
 
 //详细信息
 // export DetailPage from './DetailPage';

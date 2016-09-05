@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import * as AppActions from '../redux/actions/AppActions';
 
-import { BuyDetail, SellDetail } from '../components'
+import { BuyDetail, SellDetail, LeaseDetail } from '../components'
 
 import {
   View,
@@ -43,6 +43,13 @@ class HomeDetailContainer extends React.Component {
                       detail={detail} detailActions={detailActions}/>
         );
         break;
+      case 'lease':
+        const { leases } = this.props;
+        return (
+          <LeaseDetail leases={leases} item={item} id={params.id}
+                      detail={detail} detailActions={detailActions}/>
+        );
+        break;
       default:
         break;
     }
@@ -60,7 +67,10 @@ class HomeDetailContainer extends React.Component {
 HomeDetailContainer.propTypes = {
   buys: PropTypes.object.isRequired,
   sells: PropTypes.object.isRequired,
+  leases: PropTypes.object.isRequired,
+  rents: PropTypes.object.isRequired,
   detail: PropTypes.object.isRequired,
+
   appActions: PropTypes.object.isRequired,
   detailActions: PropTypes.object.isRequired
 };
@@ -69,6 +79,8 @@ function mapStateToProps(state) {
   return {
     buys: state.buys,
     sells: state.sells,
+    leases: state.leases,
+    rents: state.rents,
     detail:state.detail
   }
 }

@@ -9,7 +9,7 @@ import {
   View
 } from 'amazeui-touch';
 
-import { Buy, Sell } from '../components'
+import { Buy, Sell, Lease, Rent} from '../components'
 
 class HomeTypeContainer extends React.Component {
   // constructor(props) {
@@ -41,6 +41,18 @@ class HomeTypeContainer extends React.Component {
           <Sell sells={sells} homeActions={homeActions} appActions={appActions}/>
         );
         break;
+      case 'lease':
+        const { leases } = this.props;
+        return (
+          <Lease leases={leases} homeActions={homeActions} appActions={appActions}/>
+        );
+        break;
+      case 'rent':
+        const { rents } = this.props;
+        return (
+          <Rent rents={rents} homeActions={homeActions} appActions={appActions}/>
+        );
+        break;
       default:
         break;
     }
@@ -58,6 +70,9 @@ class HomeTypeContainer extends React.Component {
 HomeTypeContainer.propTypes = {
   buys: PropTypes.object.isRequired,
   sells: PropTypes.object.isRequired,
+  leases: PropTypes.object.isRequired,
+  rents: PropTypes.object.isRequired,
+
   homeActions: PropTypes.object.isRequired,
   appActions: PropTypes.object.isRequired
 };
@@ -65,7 +80,9 @@ HomeTypeContainer.propTypes = {
 function mapStateToProps(state) {
   return {
     buys: state.buys,
-    sells: state.sells
+    sells: state.sells,
+    leases: state.leases,
+    rents: state.rents
   }
 }
 
