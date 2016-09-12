@@ -2,12 +2,14 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import * as AppActions from '../redux/actions/AppActions';
+import * as LoginActions from '../redux/actions/LoginActions';
 
 import {
   Container,
   List,
-  Group,
   View,
+  Field,
+  Icon
 } from 'amazeui-touch';
 import {
   Link,
@@ -21,48 +23,51 @@ class LoginContainer extends React.Component {
     dispatch(AppActions.setNavTitle('登录'));
   }
 
-  renderItems() {
-    const pages = [
-      'sell',
-      'buy',
-      'lend',
-      'rent',
-      'hire',
-      'apply',
-    ];
-
-    const titles = [
-      '卖车信息',
-      '买车信息',
-      '出租信息',
-      '求租信息',
-      '招聘信息',
-      '求职信息',
-    ];
-
-    return pages.map((item, index) => {
-      return (
-
-        <List.Item
-          linkComponent={Link}
-          // 传递 query 参数
-          linkProps={{to: {pathname: `/home/${item}`, query: {type: titles[index]}}}}
-          title={titles[index]}
-          key={index}
-        />
-      );
-    });
-  }
+  handleSubmit = (e) => {
+    // e.preventDefault(); //取消事件的默认动作
+    // console.log(this.refs.usernameField.getValue());
+    // console.log(this.refs.passwordField.getValue());
+    const { dispatch } = this.props;
+    dispatch(LoginActions.login(this.refs.usernameField.getValue(), this.refs.passwordField.getValue()))
+  };
 
   render() {
     return (
       <View>
         <Container scrollable>
-          <Group>
             <List>
-              {this.renderItems()}
+              <List.Item
+                key={1}
+                nested="input"
+                media={<Icon name="person" />}>
+                <Field
+                  label="账号"
+                  type="text"
+                  placeholder= "请输入账号"
+                  ref="usernameField"
+                />
+              </List.Item>
+
+              <List.Item
+                className = "cy_list_item"
+                key={2}
+                nested="input"
+                media={<Icon name="info" />}>
+                <Field
+                  label="密码"
+                  type="text"
+                  placeholder= "请输入密码"
+                  ref="passwordField"
+                />
+              </List.Item>
             </List>
-          </Group>
+          <Field
+            value="提交"
+            type="submit"
+            amStyle="success"
+            block
+            onClick={this.handleSubmit}
+          />
         </Container>
       </View>
     );
@@ -70,3 +75,4 @@ class LoginContainer extends React.Component {
 }
 
 export default connect()(LoginContainer)
+

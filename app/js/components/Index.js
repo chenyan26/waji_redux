@@ -3,10 +3,15 @@ export Buy from './Buy';
 export Sell from './Sell';
 export Lease from './Lease';
 export Rent from './Rent';
+export Recruit from './Recruit';
+export Apply from './Apply';
 
 export BuyDetail from './BuyDetail';
 export SellDetail from './SellDetail';
 export LeaseDetail from './LeaseDetail';
+export RentDetail from './RentDetail';
+export RecruitDetail from './RecruitDetail';
+export ApplyDetail from './ApplyDetail';
 
 //详细信息
 // export DetailPage from './DetailPage';

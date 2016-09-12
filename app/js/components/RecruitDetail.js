@@ -7,21 +7,21 @@ import {
   Group,
 } from 'amazeui-touch';
 
-export default class BuyDetail extends React.Component {
+export default class RecruitDetail extends React.Component {
 
   componentWillMount() {
-    const { buys ,detailActions, id} = this.props;
+    const { recruits ,detailActions, id} = this.props;
 
-    if (! buys.loadState.success) {
+    if (! recruits.loadState.success) {
       //根据 id 请求
-      detailActions.getCarById(id);
+      detailActions.getRecruitById(id);
     }
   }
 
     renderDetail = () => {
-      const {buys, detail} = this.props;
+      const {recruits, detail} = this.props;
 
-      if (!(buys.loadState.success || detail.loadState.success)) {
+      if (!(recruits.loadState.success || detail.loadState.success)) {
         return(
           <Loader
             className="cy-empty-loader"
@@ -30,9 +30,9 @@ export default class BuyDetail extends React.Component {
       }
 
       var obj;
-      if (buys.loadState.success) {
+      if (recruits.loadState.success) {
         const {item} = this.props;
-        const objArr = buys.buyArray;
+        const objArr = recruits.recruitArray;
         obj = objArr[item];
       }else {
         obj = detail.detailObj.data[0];
@@ -40,13 +40,14 @@ export default class BuyDetail extends React.Component {
       return (
         <div>
           <Group>
-            <p>品牌: {obj.brand}</p>
-            <p>联系人: {obj.contacts}</p>
-            <p>型号: {obj.cartype}</p>
-            <p>发布日期: {obj.inputtime}</p>
-            <p>联系电话: {obj.phone}</p>
+            <p>职位: {obj.jobtype}</p>
+            <p>公司名称: {obj.companyname}</p>
+            <p>工资: {obj.salary}</p>
+            <p>学历要求: {obj.educational}</p>
+            <p>工作经验: {obj.workback}</p>
             <p>地点: {obj.place}</p>
-            <p>买车要求: {obj.description}</p>
+            <p>发布日期: {obj.inputtime}</p>
+            <p>公司介绍: {obj.content}</p>
           </Group>
           <Button amStyle="primary" block>下载App查看更多</Button>
         </div>
@@ -62,11 +63,13 @@ export default class BuyDetail extends React.Component {
     }
 }
 
-BuyDetail.propTypes = {
-  buys: PropTypes.object.isRequired,
+
+RecruitDetail.propTypes = {
+  recruits: PropTypes.object.isRequired,
   detailActions: PropTypes.object.isRequired,
   item:PropTypes.string,
   id:PropTypes.string,
   detail:PropTypes.object.isRequired,
 };
+
 

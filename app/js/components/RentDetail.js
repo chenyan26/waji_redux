@@ -7,21 +7,21 @@ import {
   Group,
 } from 'amazeui-touch';
 
-export default class BuyDetail extends React.Component {
+export default class RentDetail extends React.Component {
 
   componentWillMount() {
-    const { buys ,detailActions, id} = this.props;
+    const { rents ,detailActions, id} = this.props;
 
-    if (! buys.loadState.success) {
+    if (! rents.loadState.success) {
       //根据 id 请求
       detailActions.getCarById(id);
     }
   }
 
     renderDetail = () => {
-      const {buys, detail} = this.props;
+      const {rents, detail} = this.props;
 
-      if (!(buys.loadState.success || detail.loadState.success)) {
+      if (!(rents.loadState.success || detail.loadState.success)) {
         return(
           <Loader
             className="cy-empty-loader"
@@ -30,9 +30,9 @@ export default class BuyDetail extends React.Component {
       }
 
       var obj;
-      if (buys.loadState.success) {
+      if (rents.loadState.success) {
         const {item} = this.props;
-        const objArr = buys.buyArray;
+        const objArr = rents.rentArray;
         obj = objArr[item];
       }else {
         obj = detail.detailObj.data[0];
@@ -62,8 +62,8 @@ export default class BuyDetail extends React.Component {
     }
 }
 
-BuyDetail.propTypes = {
-  buys: PropTypes.object.isRequired,
+RentDetail.propTypes = {
+  rents: PropTypes.object.isRequired,
   detailActions: PropTypes.object.isRequired,
   item:PropTypes.string,
   id:PropTypes.string,

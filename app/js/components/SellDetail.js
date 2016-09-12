@@ -31,15 +31,15 @@ export default class SellDetail extends React.Component {
 
       if (sells.loadState.success) {
         const {item} = this.props;
-        const sellArr = sells.sellArray;
-        const sell = sellArr[item];
+        const objArr = sells.sellArray;
+        const obj = objArr[item];
         return (
           <div>
             <Group>
               <Slider
                 //onAction={onAction}
               >
-                {sell.picture.map((picture, i) => {
+                {obj.picture.map((picture, i) => {
                   return (
                     <Slider.Item
                       key={i}>
@@ -49,28 +49,29 @@ export default class SellDetail extends React.Component {
                 })}
               </Slider>
 
-              <p>品牌: {sell.brand}</p>
-              <p>价格: {sell.price}</p>
-              <p>小时数: {sell.worktime}</p>
-              <p>发布日期: {sell.inputtime}</p>
-              <p>联系人: {sell.contacts}</p>
-              <p>生产日期: {sell.madetime}</p>
-              <p>地点: {sell.place}</p>
-              <p>原车用途: {sell.application}</p>
-              <p>车辆描述: {sell.description}</p>
+              <p>品牌: {obj.brand}</p>
+              <p>类型: {obj.cartype}</p>
+              <p>价格: {obj.price}</p>
+              <p>小时数: {obj.worktime}</p>
+              <p>发布日期: {obj.inputtime}</p>
+              <p>联系人: {obj.contacts}</p>
+              <p>生产日期: {obj.madetime}</p>
+              <p>地点: {obj.place}</p>
+              <p>原车用途: {obj.application}</p>
+              <p>车辆描述: {obj.description}</p>
             </Group>
             <Button amStyle="primary" block>下载App查看更多</Button>
           </div>
         )
       } else {
-        const sell = detail.detailObj.data[0];
+        const obj = detail.detailObj.data[0];
         return (
           <div>
             <Group>
               <Slider
                 //onAction={onAction}
               >
-                {sell.picture.map((picture, i) => {
+                {obj.picture.map((picture, i) => {
                   return (
                     <Slider.Item
                       key={i}>
@@ -80,15 +81,16 @@ export default class SellDetail extends React.Component {
                 })}
               </Slider>
 
-              <p>品牌: {sell.brand}</p>
-              <p>价格: {sell.price} 万元</p>
-              <p>小时数: {sell.worktime}</p>
-              <p>发布日期: {sell.inputtime}</p>
-              <p>联系人: {sell.contacts}</p>
-              <p>生产日期: {sell.madetime}</p>
-              <p>地点: {sell.place}</p>
-              <p>原车用途: {sell.application}</p>
-              <p>车辆描述: {sell.description}</p>
+              <p>品牌: {obj.brand}</p>
+              <p>类型: {obj.cartype}</p>
+              <p>价格: {obj.price} 万元</p>
+              <p>小时数: {obj.worktime}</p>
+              <p>发布日期: {obj.inputtime}</p>
+              <p>联系人: {obj.contacts}</p>
+              <p>生产日期: {obj.madetime}</p>
+              <p>地点: {obj.place}</p>
+              <p>原车用途: {obj.application}</p>
+              <p>车辆描述: {obj.description}</p>
             </Group>
             <Button amStyle="primary" block>下载App查看更多</Button>
           </div>

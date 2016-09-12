@@ -50,6 +50,7 @@ export default class LeaseDetail extends React.Component {
               </Slider>
 
               <p>品牌: {obj.brand}</p>
+              <p>类型: {obj.cartype}</p>
               <p>价格: {obj.price}</p>
               <p>小时数: {obj.worktime}</p>
               <p>发布日期: {obj.inputtime}</p>
@@ -81,6 +82,7 @@ export default class LeaseDetail extends React.Component {
               </Slider>
 
               <p>品牌: {obj.brand}</p>
+              <p>类型: {obj.cartype}</p>
               <p>价格: {obj.price} 万元</p>
               <p>小时数: {obj.worktime}</p>
               <p>发布日期: {obj.inputtime}</p>

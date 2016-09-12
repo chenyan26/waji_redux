@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import * as AppActions from '../redux/actions/AppActions';
 
-import { BuyDetail, SellDetail, LeaseDetail } from '../components'
+import { BuyDetail, SellDetail, LeaseDetail, RentDetail, RecruitDetail, ApplyDetail } from '../components'
 
 import {
   View,
@@ -50,6 +50,27 @@ class HomeDetailContainer extends React.Component {
                       detail={detail} detailActions={detailActions}/>
         );
         break;
+      case 'rent':
+        const { rents } = this.props;
+        return (
+          <RentDetail rents={rents} item={item} id={params.id}
+                       detail={detail} detailActions={detailActions}/>
+        );
+        break;
+      case 'recruit':
+        const { recruits } = this.props;
+        return (
+          <RecruitDetail recruits={recruits} item={item} id={params.id}
+                       detail={detail} detailActions={detailActions}/>
+        );
+        break;
+      case 'apply':
+        const { applys } = this.props;
+        return (
+          <ApplyDetail applys={applys} item={item} id={params.id}
+                         detail={detail} detailActions={detailActions}/>
+        );
+        break;
       default:
         break;
     }
@@ -69,6 +90,8 @@ HomeDetailContainer.propTypes = {
   sells: PropTypes.object.isRequired,
   leases: PropTypes.object.isRequired,
   rents: PropTypes.object.isRequired,
+  recruits: PropTypes.object.isRequired,
+  applys: PropTypes.object.isRequired,
   detail: PropTypes.object.isRequired,
 
   appActions: PropTypes.object.isRequired,
@@ -81,6 +104,8 @@ function mapStateToProps(state) {
     sells: state.sells,
     leases: state.leases,
     rents: state.rents,
+    recruits: state.recruits,
+    applys: state.applys,
     detail:state.detail
   }
 }

@@ -40,6 +40,7 @@ const routes = (
        <Route path="login" component={LoginContainer} />
 
        <Route path='circle' component={CircleContainer} />
+       {/*<Route path='world' component={Container} />*/}
 
        <Route path='my' component={MyContainer} />
        <Route path="my/info" component={InfoContainer} />

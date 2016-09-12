@@ -9,7 +9,7 @@ import {
   View
 } from 'amazeui-touch';
 
-import { Buy, Sell, Lease, Rent} from '../components'
+import { Buy, Sell, Lease, Rent, Recruit, Apply} from '../components'
 
 class HomeTypeContainer extends React.Component {
   // constructor(props) {
@@ -18,7 +18,6 @@ class HomeTypeContainer extends React.Component {
   // }
 
   componentWillMount() {
-    console.log("HomeTypeContainer");
     const { appActions } = this.props;
     appActions.hideTabbar(true);
     appActions.hideNavLeft(false);
@@ -53,6 +52,18 @@ class HomeTypeContainer extends React.Component {
           <Rent rents={rents} homeActions={homeActions} appActions={appActions}/>
         );
         break;
+      case 'recruit':
+        const { recruits } = this.props;
+        return (
+          <Recruit recruits={recruits} homeActions={homeActions} appActions={appActions}/>
+        );
+        break;
+      case 'apply':
+        const { applys } = this.props;
+        return (
+          <Apply applys={applys} homeActions={homeActions} appActions={appActions}/>
+        );
+        break;
       default:
         break;
     }
@@ -72,6 +83,8 @@ HomeTypeContainer.propTypes = {
   sells: PropTypes.object.isRequired,
   leases: PropTypes.object.isRequired,
   rents: PropTypes.object.isRequired,
+  recruits: PropTypes.object.isRequired,
+  applys: PropTypes.object.isRequired,
 
   homeActions: PropTypes.object.isRequired,
   appActions: PropTypes.object.isRequired
@@ -82,7 +95,9 @@ function mapStateToProps(state) {
     buys: state.buys,
     sells: state.sells,
     leases: state.leases,
-    rents: state.rents
+    rents: state.rents,
+    recruits: state.recruits,
+    applys: state.applys
   }
 }
 

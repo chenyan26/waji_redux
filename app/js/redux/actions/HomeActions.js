@@ -78,9 +78,9 @@ export function getSells() {
 /*
  * 获取 求租 Rent -------------------------------------------------------
  */
-export const GET_RENT_REQUEST = 'GET_RENT_REQUEST';
-export const GET_RENT_SUCCESS = 'GET_RENT_SUCCESS';
-export const GET_RENT_FAILURE = 'GET_RENT_FAILURE';
+export const GET_RENTS_REQUEST = 'GET_RENTS_REQUEST';
+export const GET_RENTS_SUCCESS = 'GET_RENTS_SUCCESS';
+export const GET_RENTS_FAILURE = 'GET_RENTS_FAILURE';
 
 export function getRents() {
   var formData = new FormData();
@@ -96,9 +96,9 @@ export function getRents() {
       method:'POST',
       body:formData,
       types: [
-        {type :'GET_RENT_REQUEST'},
-        {type :'GET_RENT_SUCCESS', payload: (action, state, res) => res.json()},
-        {type :'GET_RENT_FAILURE'}
+        {type :'GET_RENTS_REQUEST'},
+        {type :'GET_RENTS_SUCCESS', payload: (action, state, res) => res.json()},
+        {type :'GET_RENTS_FAILURE'}
       ]
     }
   }
@@ -107,9 +107,9 @@ export function getRents() {
 /*
  * 获取 出租 Lease -------------------------------------------------------
  */
-export const GET_LEASE_REQUEST = 'GET_LEASE_REQUEST';
-export const GET_LEASE_SUCCESS = 'GET_LEASE_SUCCESS';
-export const GET_LEASE_FAILURE = 'GET_LEASE_FAILURE';
+export const GET_LEASES_REQUEST = 'GET_LEASES_REQUEST';
+export const GET_LEASES_SUCCESS = 'GET_LEASES_SUCCESS';
+export const GET_LEASES_FAILURE = 'GET_LEASES_FAILURE';
 
 export function getLeases() {
   var formData = new FormData();
@@ -125,9 +125,51 @@ export function getLeases() {
       method:'POST',
       body:formData,
       types: [
-        {type :'GET_LEASE_REQUEST'},
-        {type :'GET_LEASE_SUCCESS', payload: (action, state, res) => res.json()},
-        {type :'GET_LEASE_FAILURE'}
+        {type :'GET_LEASES_REQUEST'},
+        {type :'GET_LEASES_SUCCESS', payload: (action, state, res) => res.json()},
+        {type :'GET_LEASES_FAILURE'}
+      ]
+    }
+  }
+}
+
+/*
+ * 获取 招聘 Recruit -------------------------------------------------------
+ */
+export const GET_RECRUITS_REQUEST = 'GET_RECRUITS_REQUEST';
+export const GET_RECRUITS_SUCCESS = 'GET_RECRUITS_SUCCESS';
+export const GET_RECRUITS_FAILURE = 'GET_RECRUITS_FAILURE';
+
+export function getRecruits() {
+  return {
+    [CALL_API]: {
+      endpoint: 'http://eswjdg.com/index.php?m=mmapi&c=sale&a=get_zparc',
+      method:'POST',
+      types: [
+        {type :'GET_RECRUITS_REQUEST'},
+        {type :'GET_RECRUITS_SUCCESS', payload: (action, state, res) => res.json()},
+        {type :'GET_RECRUITS_FAILURE'}
+      ]
+    }
+  }
+}
+
+/*
+ * 获取 求职 Apply -------------------------------------------------------
+ */
+export const GET_APPLYS_REQUEST = 'GET_APPLYS_REQUEST';
+export const GET_APPLYS_SUCCESS = 'GET_APPLYS_SUCCESS';
+export const GET_APPLYS_FAILURE = 'GET_APPLYS_FAILURE';
+
+export function getApplys() {
+  return {
+    [CALL_API]: {
+      endpoint: 'http://eswjdg.com/index.php?m=mmapi&c=sale&a=get_yp',
+      method:'POST',
+      types: [
+        {type :'GET_APPLYS_REQUEST'},
+        {type :'GET_APPLYS_SUCCESS', payload: (action, state, res) => res.json()},
+        {type :'GET_APPLYS_FAILURE'}
       ]
     }
   }
