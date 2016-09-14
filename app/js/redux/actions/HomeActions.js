@@ -116,7 +116,7 @@ export function getLeases() {
   formData.append("address", "省市");
   formData.append("brand", "品牌");
   formData.append("cartype","");
-  formData.append("catid", 12); //买车
+  formData.append("catid", 12);
   formData.append("pagenow", 1);
   formData.append("price", "价格");
   return {

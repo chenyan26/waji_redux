@@ -60,6 +60,7 @@
     "preview": "npm run build && browser-sync start --server dist"
   },
   "dependencies": {
+    "amazeui-react": "^1.2.2",
     "babel-polyfill": "^6.13.0",
     "classnames": "^2.2.5",
     "isomorphic-fetch": "^2.2.1",

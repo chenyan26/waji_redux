@@ -14,12 +14,10 @@ export HomeDetailContainer from './HomeDetailContainer';
 
 //朋友圈
 export CircleContainer from './CircleContainer';
-// export Home from './CirclePage';
+export CircleTypeContainer from './CircleTypeContainer';
 // export Home from './CircleDetailPage';
 
 //我的
 export MyContainer from './MyContainer';
 export InfoContainer from './InfoContainer';
 
-//登录
-export LoginContainer from './LoginContainer';

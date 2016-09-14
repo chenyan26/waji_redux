@@ -17,14 +17,14 @@ import {
 
 import {
   AppContainer,
-  LoginContainer,
 
   HomeContainer,
   HomeTypeContainer,
-
   HomeDetailContainer,
 
   CircleContainer,
+  CircleTypeContainer,
+
   MyContainer,
   InfoContainer,
 } from './containers';
@@ -37,10 +37,8 @@ const routes = (
    <Router history={history}>
      <Route path="/" component={AppContainer}>
 
-       <Route path="login" component={LoginContainer} />
-
        <Route path='circle' component={CircleContainer} />
-       {/*<Route path='world' component={Container} />*/}
+       <Route path='circle/:type' component={CircleTypeContainer} />
 
        <Route path='my' component={MyContainer} />
        <Route path="my/info" component={InfoContainer} />

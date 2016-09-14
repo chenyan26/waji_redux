@@ -17,7 +17,7 @@ export ApplyDetail from './ApplyDetail';
 // export DetailPage from './DetailPage';
 
 //朋友圈
-// export Circle from './Circle';
+export Friend from './Friend';
 
 //我的
 // export My from './My';

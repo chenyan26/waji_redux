@@ -4,6 +4,8 @@ import {
   List,
   Group,
   View,
+  Icon,
+  Field
 } from 'amazeui-touch';
 import {
   Link,
@@ -11,6 +13,8 @@ import {
 
 import { connect } from 'react-redux';
 import * as AppActions from '../redux/actions/AppActions';
+import * as LoginActions from '../redux/actions/LoginActions';
+
 
 class CircleContainer extends React.Component {
 
@@ -18,49 +22,85 @@ class CircleContainer extends React.Component {
     const { dispatch } = this.props;
     dispatch(AppActions.hideTabbar(false));
     dispatch(AppActions.hideNavLeft(true));
-    dispatch(AppActions.setNavTitle('朋友圈'));
-  }
-
-  renderItems() {
-    const pages = [
-      'world',
-      'friend'
-    ];
-
-    const titles = [
-      '世界圈',
-      '朋友圈',
-    ];
 
     const { login } = this.props;
     if (login.loadState.success) {
-      // 如果登录 -> Circle -> CircleDetail
-      return pages.map((item, index) => {
-        return (
+      dispatch(AppActions.setNavTitle('朋友圈'));
+    } else {
+      dispatch(AppActions.setNavTitle('登录'));
+    }
+  }
 
-          <List.Item
-            linkComponent={Link}
-            // 传递 query 参数
-            //linkProps={{to: {pathname: `/${item.toLowerCase()}`, query: {q: item}}}}
-            linkProps={{to: {pathname: `/${item}`}}}
-            //linkProps={{to: {pathname: '/login'}}}
-            title={titles[index]}
-            key={index}
-          />
-        );
-      });
+  handleSubmit = (e) => {
+    // e.preventDefault(); //取消事件的默认动作
+    // console.log(this.refs.usernameField.getValue());
+    // console.log(this.refs.passwordField.getValue());
+    const { dispatch } = this.props;
+    // dispatch(LoginActions.login(this.refs.usernameField.getValue(), this.refs.passwordField.getValue()))
+    dispatch(LoginActions.login('18508446612', '58061858'))
+  };
+
+  renderItems() {
+    const { login } = this.props;
+    if (login.loadState.success) {
+      // 如果登录 -> Circle -> CircleDetail
+      return (
+        <Group noPadded>
+          <List>
+            <List.Item
+              linkComponent={Link}
+              linkProps={{to: {pathname: '/circle/friend'}}}
+              title="朋友圈"
+              key="py"
+            />
+            <List.Item
+              linkComponent={Link}
+              linkProps={{to: {pathname: '/circle/world'}}}
+              title="世界圈"
+              key="sj"
+            />
+          </List>
+        </Group>
+      );
     } else {
       // 没登录-> login的内容
-      return titles.map((item, index) => {
-        return (
-          <List.Item
-            linkComponent={Link}
-            linkProps={{to: {pathname: '/login'}}}
-            title={item}
-            key={index}
+      return (
+        <div>
+          <List>
+            <List.Item
+              key="zh"
+              nested="input"
+              media={<Icon name="person" />}>
+              <Field
+                label="账号"
+                type="text"
+                placeholder= "请输入账号"
+                ref="usernameField"
+              />
+            </List.Item>
+
+            <List.Item
+              className = "cy_list_item"
+              key="mm"
+              nested="input"
+              media={<Icon name="info" />}>
+              <Field
+                label="密码"
+                type="text"
+                placeholder= "请输入密码"
+                ref="passwordField"
+              />
+            </List.Item>
+          </List>
+          <Field
+            value="提交"
+            type="submit"
+            amStyle="success"
+            block
+            onClick={this.handleSubmit}
           />
-        );
-      });
+        </div>
+      );
     }
   }
 
@@ -68,11 +108,7 @@ class CircleContainer extends React.Component {
     return (
       <View>
         <Container scrollable>
-          <Group>
-            <List>
-              {this.renderItems()}
-            </List>
-          </Group>
+          {this.renderItems()}
         </Container>
       </View>
     );

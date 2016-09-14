@@ -130,6 +130,8 @@ AppContainer.propTypes = {
   applys: PropTypes.object.isRequired,
   recruits: PropTypes.object.isRequired,
 
+  friends: PropTypes.object.isRequired,
+
   login: PropTypes.object.isRequired,
 };
 
@@ -144,6 +146,8 @@ function mapStateToProps(state) {
 
     recruits: state.recruits,
     applys: state.applys,
+
+    friends: state.friends,
 
     login: state.login,
   }
