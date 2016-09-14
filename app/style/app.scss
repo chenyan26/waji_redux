@@ -75,6 +75,12 @@ $ratchicons-path: "../../node_modules/amazeui-touch/fonts/";
 .cy-catid-text {
   color: rgba(255, 0, 20, 0.74);
 }
+//朋友圈detail中 标注的 类型(如:卖车信息)
+.cy-catid-detail-text {
+  width: 100%;
+  text-align: center;
+  color: rgba(255, 0, 20, 0.74);
+}
 //最下面的小字(如:地址)
 .cy-sub-text {
   color: rgba(72, 79, 77, 0.74);
@@ -84,4 +90,40 @@ $ratchicons-path: "../../node_modules/amazeui-touch/fonts/";
 //朋友圈里面的 照片
 .cy-circle-img {
   margin: 1px;
+}
+
+//朋友圈 detail的 名字
+.cy-cricel-detail-name {
+  position:relative;
+  right:-80px;
+  top:-65px;
+  z-index:2;
+}
+
+//朋友圈 detail的 时间
+.cy-cricel-detail-time {
+  position:relative;
+  right:-80px;
+  top:-75px;
+  z-index:2;
+  color: rgba(72, 79, 77, 0.74);
+  font-size: smaller;
+}
+
+//朋友圈 header下面的部分
+.cy-cricel-detail-main {
+  position:relative;
+  top:-50px;
+  z-index:2;
+}
+//朋友圈detail中 提示 还没有评论,快抢沙发
+.cy-detail-eva-text {
+  width: 100%;
+  text-align: center;
+  color: rgba(10, 66, 184, 0.74);
+}
+
+.my-footer {
+  width: 100%;
+  text-align: center;
 }

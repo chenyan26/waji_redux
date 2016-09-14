@@ -15,7 +15,7 @@ export HomeDetailContainer from './HomeDetailContainer';
 //朋友圈
 export CircleContainer from './CircleContainer';
 export CircleTypeContainer from './CircleTypeContainer';
-// export Home from './CircleDetailPage';
+export CircleDetailContainer from './CircleDetailContainer';
 
 //我的
 export MyContainer from './MyContainer';

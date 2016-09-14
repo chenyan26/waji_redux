@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
-
 import {
   Container,
-  Button,
   Loader,
   Group,
   Slider
 } from 'amazeui-touch';
+
+import { MyFooter } from '../components';
 
 export default class LeaseDetail extends React.Component {
 
@@ -60,7 +60,7 @@ export default class LeaseDetail extends React.Component {
               <p>原车用途: {obj.application}</p>
               <p>车辆描述: {obj.description}</p>
             </Group>
-            <Button amStyle="primary" block>下载App查看更多</Button>
+            <MyFooter />
           </div>
         )
       } else {
@@ -92,7 +92,7 @@ export default class LeaseDetail extends React.Component {
               <p>原车用途: {obj.application}</p>
               <p>车辆描述: {obj.description}</p>
             </Group>
-            <Button amStyle="primary" block>下载App查看更多</Button>
+            <MyFooter />
           </div>
         )
       }

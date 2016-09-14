@@ -5,13 +5,13 @@ import { bindActionCreators } from 'redux';
 
 import * as AppActions from '../redux/actions/AppActions';
 
-import { BuyDetail, SellDetail, LeaseDetail, RentDetail, RecruitDetail, ApplyDetail } from '../components'
+import { FriendDetail } from '../components'
 
 import {
   View,
 } from 'amazeui-touch';
 
-class HomeDetailContainer extends React.Component {
+class CircleDetailContainer extends React.Component {
 
   componentWillMount() {
     const { appActions } = this.props;
@@ -19,61 +19,24 @@ class HomeDetailContainer extends React.Component {
     appActions.hideNavLeft(false);
     appActions.setNavTitle('详细信息');
     const { type } = this.props.params;
-    appActions.setNavBackLink(`/home/${type}`);
+    appActions.setNavBackLink(`/circle/${type}`);
   }
 
   renderComponent = () => {
-    const { detail, detailActions } = this.props;
+    const { detail, detailActions, friends, worlds, params } = this.props;
 
-    const { item } = this.props.location.query;
-    const { params } = this.props;
+    const { item, catid} = this.props.location.query;
 
-    switch (params.type) {
-      case 'buy':
-        const { buys } = this.props;
-        return (
-          <BuyDetail buys={buys} item={item} id={params.id}
-                     detail={detail} detailActions={detailActions}/>
-        );
-        break;
-      case 'sell':
-        const { sells } = this.props;
-        return (
-          <SellDetail sells={sells} item={item} id={params.id}
-                      detail={detail} detailActions={detailActions}/>
-        );
-        break;
-      case 'lease':
-        const { leases } = this.props;
-        return (
-          <LeaseDetail leases={leases} item={item} id={params.id}
-                      detail={detail} detailActions={detailActions}/>
-        );
-        break;
-      case 'rent':
-        const { rents } = this.props;
-        return (
-          <RentDetail rents={rents} item={item} id={params.id}
-                       detail={detail} detailActions={detailActions}/>
-        );
-        break;
-      case 'recruit':
-        const { recruits } = this.props;
-        return (
-          <RecruitDetail recruits={recruits} item={item} id={params.id}
-                       detail={detail} detailActions={detailActions}/>
-        );
-        break;
-      case 'apply':
-        const { applys } = this.props;
-        return (
-          <ApplyDetail applys={applys} item={item} id={params.id}
-                         detail={detail} detailActions={detailActions}/>
-        );
-        break;
-      default:
-        break;
+    let circles;
+    if (params.type == 'friend') {
+      circles = friends;
+    } else {
+      circles = worlds;
     }
+    return (
+      <FriendDetail circles={circles} item={item} catid={catid} id={params.id}
+                    detail={detail} detailActions={detailActions}/>
+    );
   };
 
   render() {
@@ -85,13 +48,9 @@ class HomeDetailContainer extends React.Component {
   }
 }
 
-HomeDetailContainer.propTypes = {
-  buys: PropTypes.object.isRequired,
-  sells: PropTypes.object.isRequired,
-  leases: PropTypes.object.isRequired,
-  rents: PropTypes.object.isRequired,
-  recruits: PropTypes.object.isRequired,
-  applys: PropTypes.object.isRequired,
+CircleDetailContainer.propTypes = {
+  friends: PropTypes.object.isRequired,
+  worlds: PropTypes.object.isRequired,
   detail: PropTypes.object.isRequired,
 
   appActions: PropTypes.object.isRequired,
@@ -100,12 +59,8 @@ HomeDetailContainer.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    buys: state.buys,
-    sells: state.sells,
-    leases: state.leases,
-    rents: state.rents,
-    recruits: state.recruits,
-    applys: state.applys,
+    friends: state.friends,
+    worlds: state.worlds,
     detail:state.detail
   }
 }
@@ -117,4 +72,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeDetailContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(CircleDetailContainer)

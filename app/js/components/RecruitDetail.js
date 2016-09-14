@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
-
 import {
   Container,
-  Button,
   Loader,
   Group,
 } from 'amazeui-touch';
+
+import { MyFooter } from '../components';
 
 export default class RecruitDetail extends React.Component {
 
@@ -49,7 +49,7 @@ export default class RecruitDetail extends React.Component {
             <p>发布日期: {obj.inputtime}</p>
             <p>公司介绍: {obj.content}</p>
           </Group>
-          <Button amStyle="primary" block>下载App查看更多</Button>
+          <MyFooter />
         </div>
       )
     };
@@ -62,7 +62,6 @@ export default class RecruitDetail extends React.Component {
       );
     }
 }
-
 
 RecruitDetail.propTypes = {
   recruits: PropTypes.object.isRequired,

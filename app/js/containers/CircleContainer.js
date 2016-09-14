@@ -23,12 +23,7 @@ class CircleContainer extends React.Component {
     dispatch(AppActions.hideTabbar(false));
     dispatch(AppActions.hideNavLeft(true));
 
-    const { login } = this.props;
-    if (login.loadState.success) {
-      dispatch(AppActions.setNavTitle('朋友圈'));
-    } else {
-      dispatch(AppActions.setNavTitle('登录'));
-    }
+    dispatch(AppActions.setNavTitle('世界圈'));
   }
 
   handleSubmit = (e) => {

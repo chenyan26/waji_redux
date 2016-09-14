@@ -18,6 +18,7 @@ export ApplyDetail from './ApplyDetail';
 
 //朋友圈
 export Friend from './Friend';
+export FriendDetail from './FriendDetail';
 
 //我的
 // export My from './My';
@@ -26,3 +27,7 @@ export Friend from './Friend';
 
 //登录、注册、忘记密码
 // export LoginPage from './LoginPage';
+
+//页脚
+
+export MyFooter from './MyFooter';

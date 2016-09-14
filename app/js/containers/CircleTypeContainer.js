@@ -23,9 +23,14 @@ class CircleTypeContainer extends React.Component {
     const { appActions, circleActions, login, friends, worlds} = this.props;
     const { username } = login;
     const { type } = this.props.params;
+    let circles;
+    if (type == 'friend') {
+      circles = friends;
+    } else {
+      circles = worlds;
+    }
     return (
-      <Friend friends={friends} worlds={worlds}
-              type={type} username={username}
+      <Friend circles={circles} type={type} username={username}
               circleActions={circleActions} appActions={appActions}/>
     );
   };

@@ -1,10 +1,8 @@
 import React, { PropTypes } from 'react';
-
 import {
   Container,
   List,
   Loader,
-  Button,
 } from 'amazeui-touch';
 import {
   // List,
@@ -14,6 +12,8 @@ import {
 import {
   Link,
 } from 'react-router';
+
+import { MyFooter } from '../components';
 /*
     catid ---string
     卖车:9
@@ -27,30 +27,28 @@ import {
 export default class Friend extends React.Component {
 
   componentWillMount() {
-    const { appActions, circleActions, username, type, friends, worlds} = this.props;
-    appActions.setNavTitle('朋友圈');
-
-    if (type == 'friend') {
-      //如没有 缓存 则 获取friends
-      if (! friends.loadState.success) {
-        circleActions.getFriends(username);
+    const { appActions, circleActions, username, type, circles} = this.props;
+    if (username) {
+      if (type == 'friend') {
+        appActions.setNavTitle('朋友圈');
+        //如没有 缓存 则 获取friends
+        if (! circles.loadState.success) {
+          circleActions.getFriends(username);
+        }
+      } else {
+        appActions.setNavTitle('世界圈');
+        //如没有 缓存 则 获取worlds
+        if (! circles.loadState.success) {
+          circleActions.getWorlds(username);
+        }
       }
     } else {
-      //如没有 缓存 则 获取worlds
-      if (! worlds.loadState.success) {
-        circleActions.getWorlds(username);
-      }
+      location.replace(window.location.origin + '#/circle');
     }
   }
 
   renderHeaderAndList = ()=> {
-    const { friends, worlds, type } = this.props;
-    var circles;
-    if (type == 'friend') {
-      circles = friends;
-    } else {
-      circles = worlds;
-    }
+    const { circles, type } = this.props;
     if (circles.loadState.success) {
       const objArr = circles.array;
       return (
@@ -68,6 +66,7 @@ export default class Friend extends React.Component {
               {objArr.map((obj, i) => {
 
                 let catidText;
+                //[发布] 的内容,是的->后续Detail需要二次请求
                 switch (obj.catid) {
                   case '9': catidText = '---卖车信息---';
                     break;
@@ -86,7 +85,7 @@ export default class Friend extends React.Component {
                 }
 
                 const img = <img width="40" src={`http://eswjdg.com/${obj.hdimg}`} />;
-                if (obj.images.length > 0) {
+                if (obj.images.length > 0) { //有图片的
                   return (
                     <List.Item
                       title={obj.nickname}
@@ -97,7 +96,7 @@ export default class Friend extends React.Component {
                       media={img}
                       key={i}
                       linkComponent={Link}
-                      linkProps={{to: {pathname: `/detail/${type}/${obj.id}`,query: {item: `${i}`}}}}
+                      linkProps={{to: {pathname: `/circle/${type}/${obj.id}`,query: {item: `${i}`, catid:obj.catid}}}}
                     >
                       <p className="cy-catid-text">{catidText}</p>
                       {
@@ -114,7 +113,7 @@ export default class Friend extends React.Component {
                       <p className="cy-sub-text">{obj.address}</p>
                     </List.Item>
                   );
-                } else {
+                } else {  //没有图片的
                   return (
                     <List.Item
                       title={obj.nickname}
@@ -125,7 +124,7 @@ export default class Friend extends React.Component {
                       media={img}
                       key={i}
                       linkComponent={Link}
-                      linkProps={{to: {pathname: `/detail/${type}/${obj.id}`,query: {item: `${i}`}}}}
+                      linkProps={{to: {pathname: `/circle/${type}/${obj.id}`,query: {item: `${i}`, catid:obj.catid}}}}
                     >
                       <p className="cy-catid-text">{catidText}</p>
                       <p className="cy-sub-text">{obj.address}</p>
@@ -134,7 +133,7 @@ export default class Friend extends React.Component {
                 }
               })}
             </List>
-            <Button amStyle="primary" block>下载App查看更多</Button>
+            <MyFooter />
           </div>
         </div>
       )
@@ -159,8 +158,7 @@ export default class Friend extends React.Component {
 Friend.propTypes = {
   username: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  friends: PropTypes.object.isRequired,
-  worlds: PropTypes.object.isRequired,
+  circles: PropTypes.object.isRequired,
   circleActions: PropTypes.object.isRequired,
   appActions: PropTypes.object.isRequired
 };

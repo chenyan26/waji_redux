@@ -101,7 +101,7 @@ class AppContainer extends React.Component {
           amStyle="primary"
           title={[appObj.navTitle]}
           leftNav={[backNav]}
-          rightNav= {[downloadNav]}
+          //rightNav= {[downloadNav]}
         />
         <Container
           //transition={transition}

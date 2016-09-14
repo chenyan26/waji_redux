@@ -1,14 +1,14 @@
 import React, { PropTypes } from 'react';
-
 import {
   Container,
   List,
   Loader,
-  Button,
 } from 'amazeui-touch';
 import {
   Link,
 } from 'react-router';
+
+import { MyFooter } from '../components';
 
 export default class Rent extends React.Component {
 
@@ -46,7 +46,7 @@ export default class Rent extends React.Component {
             );
           })}
         </List>
-          <Button amStyle="primary" block>下载App查看更多</Button>
+          <MyFooter />
         </div>
       )
     } else {

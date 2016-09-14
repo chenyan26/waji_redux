@@ -70,3 +70,81 @@ export function getApplyById(id) {
     }
   }
 }
+
+/*
+ * 朋友圈 里面的 发布的 车类 内容 -------------------------------------------------------
+ */
+export const GET_CIRCLE_CAR_BY_ID_REQUEST = 'GET_CIRCLE_CAR_BY_ID_REQUEST';
+export const GET_CIRCLE_CAR_BY_ID_SUCCESS = 'GET_CIRCLE_CAR_BY_ID_SUCCESS';
+export const GET_CIRCLE_CAR_BY_ID_FAILURE = 'GET_CIRCLE_CAR_BY_ID_FAILURE';
+
+export function getCircleCarById(id, conid, user_id) {
+  var formData = new FormData();
+  formData.append("id", id);
+  formData.append("conid", conid);
+  formData.append("user_id", user_id);
+  return {
+    [CALL_API]: {
+      endpoint: 'http://eswjdg.com/index.php?m=mmapi&c=sale&a=get_friendarc',
+      method:'POST',
+      body:formData,
+      types: [
+        {type :'GET_CIRCLE_CAR_BY_ID_REQUEST'},
+        {type :'GET_CIRCLE_CAR_BY_ID_SUCCESS', payload: (action, state, res) => res.json()},
+        {type :'GET_CIRCLE_CAR_BY_ID_FAILURE'}
+      ]
+    }
+  }
+}
+
+/*
+ * 朋友圈 里面的 发布的 招聘 内容 -------------------------------------------------------
+ */
+export const GET_CIRCLE_RECRUIT_BY_ID_REQUEST = 'GET_CIRCLE_RECRUIT_BY_ID_REQUEST';
+export const GET_CIRCLE_RECRUIT_BY_ID_SUCCESS = 'GET_CIRCLE_RECRUIT_BY_ID_SUCCESS';
+export const GET_CIRCLE_RECRUIT_BY_ID_FAILURE = 'GET_CIRCLE_RECRUIT_BY_ID_FAILURE';
+
+export function getCircleRecruitById(id, conid, user_id) {
+  var formData = new FormData();
+  formData.append("id", id);
+  formData.append("conid", conid);
+  formData.append("user_id", user_id);
+  return {
+    [CALL_API]: {
+      endpoint: 'http://eswjdg.com/index.php?m=mmapi&c=sale&a=get_zpfriend',
+      method:'POST',
+      body:formData,
+      types: [
+        {type :'GET_CIRCLE_RECRUIT_BY_ID_REQUEST'},
+        {type :'GET_CIRCLE_RECRUIT_BY_ID_SUCCESS', payload: (action, state, res) => res.json()},
+        {type :'GET_CIRCLE_RECRUIT_BY_ID_FAILURE'}
+      ]
+    }
+  }
+}
+
+/*
+ * 朋友圈 里面的 发布的 求职 内容 -------------------------------------------------------
+ */
+export const GET_CIRCLE_APPLY_BY_ID_REQUEST = 'GET_CIRCLE_APPLY_BY_ID_REQUEST';
+export const GET_CIRCLE_APPLY_BY_ID_SUCCESS = 'GET_CIRCLE_APPLY_BY_ID_SUCCESS';
+export const GET_CIRCLE_APPLY_BY_ID_FAILURE = 'GET_CIRCLE_APPLY_BY_ID_FAILURE';
+
+export function getCircleApplyById(id, conid, user_id) {
+  var formData = new FormData();
+  formData.append("id", id);
+  formData.append("conid", conid);
+  formData.append("user_id", user_id);
+  return {
+    [CALL_API]: {
+      endpoint: 'http://eswjdg.com/index.php?m=mmapi&c=sale&a=get_ypfriarc',
+      method:'POST',
+      body:formData,
+      types: [
+        {type :'GET_CIRCLE_APPLY_BY_ID_REQUEST'},
+        {type :'GET_CIRCLE_APPLY_BY_ID_SUCCESS', payload: (action, state, res) => res.json()},
+        {type :'GET_CIRCLE_APPLY_BY_ID_FAILURE'}
+      ]
+    }
+  }
+}

@@ -24,6 +24,7 @@ import {
 
   CircleContainer,
   CircleTypeContainer,
+  CircleDetailContainer,
 
   MyContainer,
   InfoContainer,
@@ -39,6 +40,7 @@ const routes = (
 
        <Route path='circle' component={CircleContainer} />
        <Route path='circle/:type' component={CircleTypeContainer} />
+       <Route path='circle/:type/:id' component={CircleDetailContainer} />
 
        <Route path='my' component={MyContainer} />
        <Route path="my/info" component={InfoContainer} />
