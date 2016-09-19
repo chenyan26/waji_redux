@@ -9,7 +9,7 @@ const bundler = webpack(webpackConfig);
 const bs = browserSync.create();
 
 bs.init({
-  logPrefix: 'AMT',
+  logPrefix: '挖挖社交WebApp',
   server: {
     baseDir: [
       'dist',

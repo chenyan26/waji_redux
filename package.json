@@ -1,8 +1,8 @@
 {
-  "name": "react-starter-kit",
+  "name": "wawawa-WebApp",
   "private": true,
-  "version": "0.0.0",
-  "description": "Amaze UI Touch Starter Kit",
+  "version": "1.0.0",
+  "description": "挖挖社交WebApp",
   "repository": {
     "type": "git",
     "url": "https://github.com/amazeui/amt-starter-kit.git"
@@ -57,7 +57,7 @@
     "clean": "del dist",
     "start": "npm run clean && node server.js",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --webpack.config.babel.js --progress",
-    "preview": "npm run build && browser-sync start --server dist"
+    "preview": "npm run build && browser-sync start --server dist",
   },
   "dependencies": {
     "amazeui-react": "^1.2.2",
