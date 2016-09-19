@@ -9,9 +9,8 @@ import {
   Group,
   View,
 } from 'amazeui-touch';
-import {
-  Link,
-} from 'react-router';
+
+import { Login, MyFooter } from '../components';
 
 class MyContainer extends React.Component {
 
@@ -19,46 +18,56 @@ class MyContainer extends React.Component {
     const { dispatch } = this.props;
     dispatch(AppActions.hideTabbar(false));
     dispatch(AppActions.hideNavLeft(true));
-    dispatch(AppActions.setNavTitle('我的'));
+    dispatch(AppActions.setNavTitle('个人信息'));
   }
 
   renderItems() {
-    const pages = [
-      'info',
-      'setting',
-    ];
-
-    const titles = [
-      '个人信息',
-      '设置',
-    ];
-
-    return pages.map((item, index) => {
+    const { login, dispatch } = this.props;
+    if (login.loadState.success) {
+      const data = login.data;
+      const img = <img width="60" src={`http://eswjdg.com/${data.hdimg}`} />;
+      //登录了
       return (
-        <List.Item
-          linkComponent={Link}
-          // 传递 query 参数
-          linkProps={{to: {pathname: `/my/${item}`, query: {type: titles[index]}}}}
-          title={titles[index]}
-          key={index}
-        />
+        <div>
+          <Group noPadded> {/*是否移除分组内容的 padding*/}
+            <List>
+              <List.Item
+                title={`昵称:  ${login.nickname}`}
+                subTitle={`账号:  ${login.username}`}
+                target="_blank"
+                media={img}
+              />
+              <List.Item title={`性别:  ${data.sex}`} />
+              <List.Item title={`地区:  ${data.address}`} />
+              <List.Item title={`个性签名:  ${data.sign}`} />
+            </List>
+          </Group>
+          <MyFooter />
+        </div>
       );
-    });
+    } else {
+      // 没登录-> login的内容
+      return (
+        <Login dispatch={dispatch}/>
+      );
+    }
   }
 
   render() {
     return (
       <View>
         <Container scrollable>
-          <Group noPadded> {/*是否移除分组内容的 padding*/}
-            <List>
-              {this.renderItems()}
-            </List>
-          </Group>
+            {this.renderItems()}
         </Container>
       </View>
     );
   }
 }
 
-export default connect()(MyContainer)
+function mapStateToProps(state) {
+  return {
+    login: state.login
+  }
+}
+
+export default connect(mapStateToProps)(MyContainer)

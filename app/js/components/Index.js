@@ -25,8 +25,8 @@ export FriendDetail from './FriendDetail';
 // export Info from './My/Info';
 // export Setting from './My/Setting';
 
-//登录、注册、忘记密码
-// export LoginPage from './LoginPage';
+//登录
+export Login from './Login';
 
 //页脚
 

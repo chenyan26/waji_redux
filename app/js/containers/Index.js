@@ -19,5 +19,4 @@ export CircleDetailContainer from './CircleDetailContainer';
 
 //我的
 export MyContainer from './MyContainer';
-export InfoContainer from './InfoContainer';
 

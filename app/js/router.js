@@ -27,7 +27,6 @@ import {
   CircleDetailContainer,
 
   MyContainer,
-  InfoContainer,
 } from './containers';
 
 const store = configureStore();
@@ -43,8 +42,6 @@ const routes = (
        <Route path='circle/:type/:id' component={CircleDetailContainer} />
 
        <Route path='my' component={MyContainer} />
-       <Route path="my/info" component={InfoContainer} />
-
        {/* <Route path=":page" component={Page}> */}
 
        {/* </Route> */}

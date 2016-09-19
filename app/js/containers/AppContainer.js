@@ -89,11 +89,11 @@ class AppContainer extends React.Component {
       to:appObj.navBackLink
     };
 
-    const downloadNav = {
-      component: 'a', // 默认为 `a`
-      title: '下载App',
-      href: 'http://fir.im/wwkj',
-    };
+    // const downloadNav = {
+    //   component: 'a', // 默认为 `a`
+    //   title: '下载App',
+    //   href: 'http://fir.im/wwkj',
+    // };
 
     return (
       <Container direction="column" id="sk-container">

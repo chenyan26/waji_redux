@@ -14,6 +14,7 @@ import {
             loadState: {loading: false, success: true, failure: false},
             username: action.payload.data.username,
             nickname: action.payload.data.nickname,
+            data: action.payload.data
           });
         } else {
           return Object.assign({}, state, {
