@@ -22,9 +22,11 @@ import {
   HomeTypeContainer,
   HomeDetailContainer,
 
-  CircleContainer,
-  CircleTypeContainer,
-  CircleDetailContainer,
+  // CircleContainer,
+  // CircleTypeContainer,
+  // CircleDetailContainer,
+  WorldContainer,
+  WorldDetailContainer,
 
   MyContainer,
 } from './containers';
@@ -37,9 +39,11 @@ const routes = (
    <Router history={history}>
      <Route path="/" component={AppContainer}>
 
-       <Route path='circle' component={CircleContainer} />
-       <Route path='circle/:type' component={CircleTypeContainer} />
-       <Route path='circle/:type/:id' component={CircleDetailContainer} />
+       <Route path='circle' component={WorldContainer} />
+       {/*<Route path='circle' component={CircleContainer} />*/}
+       {/*<Route path='circle/:type' component={CircleTypeContainer} />*/}
+       {/*<Route path='circle/:type/:id' component={CircleDetailContainer} />*/}
+       <Route path='circle/:id' component={WorldDetailContainer} />
 
        <Route path='my' component={MyContainer} />
        {/* <Route path=":page" component={Page}> */}

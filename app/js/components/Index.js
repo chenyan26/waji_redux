@@ -17,8 +17,11 @@ export ApplyDetail from './ApplyDetail';
 // export DetailPage from './DetailPage';
 
 //朋友圈
-export Friend from './Friend';
-export FriendDetail from './FriendDetail';
+// export Friend from './Friend';
+// export FriendDetail from './FriendDetail';
+
+export World from './World';
+export WorldDetail from './WorldDetail';
 
 //我的
 // export My from './My';

@@ -32,15 +32,15 @@ class CircleContainer extends React.Component {
           <List>
             <List.Item
               linkComponent={Link}
-              linkProps={{to: {pathname: '/circle/friend'}}}
-              title="朋友圈"
-              key="py"
-            />
-            <List.Item
-              linkComponent={Link}
               linkProps={{to: {pathname: '/circle/world'}}}
               title="世界圈"
               key="sj"
+            />
+            <List.Item
+              linkComponent={Link}
+              linkProps={{to: {pathname: '/circle/friend'}}}
+              title="朋友圈"
+              key="py"
             />
           </List>
         </Group>

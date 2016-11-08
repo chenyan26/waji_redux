@@ -13,9 +13,13 @@ export HomeDetailContainer from './HomeDetailContainer';
 // export Home from './DetailPage';
 
 //朋友圈
-export CircleContainer from './CircleContainer';
-export CircleTypeContainer from './CircleTypeContainer';
-export CircleDetailContainer from './CircleDetailContainer';
+// export CircleContainer from './CircleContainer';
+// export CircleTypeContainer from './CircleTypeContainer';
+// export CircleDetailContainer from './CircleDetailContainer';
+
+//世界圈
+export WorldContainer from './WorldContainer';
+export WorldDetailContainer from './WorldDetailContainer';
 
 //我的
 export MyContainer from './MyContainer';
