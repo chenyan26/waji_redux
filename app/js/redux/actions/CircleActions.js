@@ -15,9 +15,9 @@ export function getFriends(username) {
       method:'POST',
       body:formData,
       types: [
-        {type :'GET_FRIENDS_REQUEST'},
-        {type :'GET_FRIENDS_SUCCESS', payload: (action, state, res) => res.json()},
-        {type :'GET_FRIENDS_FAILURE'}
+        {type :GET_FRIENDS_REQUEST},
+        {type :GET_FRIENDS_SUCCESS, payload: (action, state, res) => res.json()},
+        {type :GET_FRIENDS_FAILURE}
       ]
     }
   }
@@ -35,9 +35,9 @@ export function getWorlds() {
       endpoint: 'http://eswjdg.com/index.php?m=mmapi&c=talk&a=get_wordsfriendq',
       method:'POST',
       types: [
-        {type :'GET_WORLDS_REQUEST'},
-        {type :'GET_WORLDS_SUCCESS', payload: (action, state, res) => res.json()},
-        'GET_WORLDS_FAILURE'
+        {type :GET_WORLDS_REQUEST},
+        {type :GET_WORLDS_SUCCESS, payload: (action, state, res) => res.json()},
+        {type :GET_WORLDS_FAILURE}
       ]
     }
   }

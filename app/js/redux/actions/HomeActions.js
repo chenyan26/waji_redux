@@ -36,9 +36,9 @@ export function getBuys() {
       method:'POST',
       body:formData,
       types: [
-        {type :'GET_BUYS_REQUEST'},
-        {type :'GET_BUYS_SUCCESS', payload: (action, state, res) => res.json()},
-        {type :'GET_BUYS_FAILURE'}
+        {type :GET_BUYS_REQUEST},
+        {type :GET_BUYS_SUCCESS, payload: (action, state, res) => res.json()},
+        {type :GET_BUYS_FAILURE}
       ]
     }
   }
@@ -67,9 +67,9 @@ export function getSells() {
       method:'POST',
       body:formData,
       types: [
-        {type :'GET_SELLS_REQUEST'},
-        {type :'GET_SELLS_SUCCESS', payload: (action, state, res) => res.json()},
-        'GET_SELLS_FAILURE'
+        {type :GET_SELLS_REQUEST},
+        {type :GET_SELLS_SUCCESS, payload: (action, state, res) => res.json()},
+        GET_SELLS_FAILURE
       ]
     }
   }
@@ -96,9 +96,9 @@ export function getRents() {
       method:'POST',
       body:formData,
       types: [
-        {type :'GET_RENTS_REQUEST'},
-        {type :'GET_RENTS_SUCCESS', payload: (action, state, res) => res.json()},
-        {type :'GET_RENTS_FAILURE'}
+        {type :GET_RENTS_REQUEST},
+        {type :GET_RENTS_SUCCESS, payload: (action, state, res) => res.json()},
+        {type :GET_RENTS_FAILURE}
       ]
     }
   }
@@ -125,9 +125,9 @@ export function getLeases() {
       method:'POST',
       body:formData,
       types: [
-        {type :'GET_LEASES_REQUEST'},
-        {type :'GET_LEASES_SUCCESS', payload: (action, state, res) => res.json()},
-        {type :'GET_LEASES_FAILURE'}
+        {type :GET_LEASES_REQUEST},
+        {type :GET_LEASES_SUCCESS, payload: (action, state, res) => res.json()},
+        {type :GET_LEASES_FAILURE}
       ]
     }
   }
@@ -146,9 +146,9 @@ export function getRecruits() {
       endpoint: 'http://eswjdg.com/index.php?m=mmapi&c=sale&a=get_zparc',
       method:'POST',
       types: [
-        {type :'GET_RECRUITS_REQUEST'},
-        {type :'GET_RECRUITS_SUCCESS', payload: (action, state, res) => res.json()},
-        {type :'GET_RECRUITS_FAILURE'}
+        {type :GET_RECRUITS_REQUEST},
+        {type :GET_RECRUITS_SUCCESS, payload: (action, state, res) => res.json()},
+        {type :GET_RECRUITS_FAILURE}
       ]
     }
   }
@@ -167,9 +167,9 @@ export function getApplys() {
       endpoint: 'http://eswjdg.com/index.php?m=mmapi&c=sale&a=get_yp',
       method:'POST',
       types: [
-        {type :'GET_APPLYS_REQUEST'},
-        {type :'GET_APPLYS_SUCCESS', payload: (action, state, res) => res.json()},
-        {type :'GET_APPLYS_FAILURE'}
+        {type :GET_APPLYS_REQUEST},
+        {type :GET_APPLYS_SUCCESS, payload: (action, state, res) => res.json()},
+        {type :GET_APPLYS_FAILURE}
       ]
     }
   }

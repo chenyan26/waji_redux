@@ -15,9 +15,9 @@ export function getCarById(id) {
       method:'POST',
       body:formData,
       types: [
-        {type :'GET_CAR_BY_ID_REQUEST'},
-        {type :'GET_CAR_BY_ID_SUCCESS', payload: (action, state, res) => res.json()},
-        {type :'GET_CAR_BY_ID_FAILURE'}
+        {type :GET_CAR_BY_ID_REQUEST},
+        {type :GET_CAR_BY_ID_SUCCESS, payload: (action, state, res) => res.json()},
+        {type :GET_CAR_BY_ID_FAILURE}
       ]
     }
   }
@@ -39,9 +39,9 @@ export function getRecruitById(id) {
       method:'POST',
       body:formData,
       types: [
-        {type :'GET_RECRUIT_BY_ID_REQUEST'},
-        {type :'GET_RECRUIT_BY_ID_SUCCESS', payload: (action, state, res) => res.json()},
-        {type :'GET_RECRUIT_BY_ID_FAILURE'}
+        {type :GET_RECRUIT_BY_ID_REQUEST},
+        {type :GET_RECRUIT_BY_ID_SUCCESS, payload: (action, state, res) => res.json()},
+        {type :GET_RECRUIT_BY_ID_FAILURE}
       ]
     }
   }
@@ -63,9 +63,9 @@ export function getApplyById(id) {
       method:'POST',
       body:formData,
       types: [
-        {type :'GET_APPLY_BY_ID_REQUEST'},
-        {type :'GET_APPLY_BY_ID_SUCCESS', payload: (action, state, res) => res.json()},
-        {type :'GET_APPLY_BY_ID_FAILURE'}
+        {type :GET_APPLY_BY_ID_REQUEST},
+        {type :GET_APPLY_BY_ID_SUCCESS, payload: (action, state, res) => res.json()},
+        {type :GET_APPLY_BY_ID_FAILURE}
       ]
     }
   }
@@ -89,9 +89,9 @@ export function getCircleCarById(id, conid, user_id) {
       method:'POST',
       body:formData,
       types: [
-        {type :'GET_CIRCLE_CAR_BY_ID_REQUEST'},
-        {type :'GET_CIRCLE_CAR_BY_ID_SUCCESS', payload: (action, state, res) => res.json()},
-        {type :'GET_CIRCLE_CAR_BY_ID_FAILURE'}
+        {type :GET_CIRCLE_CAR_BY_ID_REQUEST},
+        {type :GET_CIRCLE_CAR_BY_ID_SUCCESS, payload: (action, state, res) => res.json()},
+        {type :GET_CIRCLE_CAR_BY_ID_FAILURE}
       ]
     }
   }
@@ -115,9 +115,9 @@ export function getCircleRecruitById(id, conid, user_id) {
       method:'POST',
       body:formData,
       types: [
-        {type :'GET_CIRCLE_RECRUIT_BY_ID_REQUEST'},
-        {type :'GET_CIRCLE_RECRUIT_BY_ID_SUCCESS', payload: (action, state, res) => res.json()},
-        {type :'GET_CIRCLE_RECRUIT_BY_ID_FAILURE'}
+        {type :GET_CIRCLE_RECRUIT_BY_ID_REQUEST},
+        {type :GET_CIRCLE_RECRUIT_BY_ID_SUCCESS, payload: (action, state, res) => res.json()},
+        {type :GET_CIRCLE_RECRUIT_BY_ID_FAILURE}
       ]
     }
   }
@@ -141,9 +141,9 @@ export function getCircleApplyById(id, conid, user_id) {
       method:'POST',
       body:formData,
       types: [
-        {type :'GET_CIRCLE_APPLY_BY_ID_REQUEST'},
-        {type :'GET_CIRCLE_APPLY_BY_ID_SUCCESS', payload: (action, state, res) => res.json()},
-        {type :'GET_CIRCLE_APPLY_BY_ID_FAILURE'}
+        {type :GET_CIRCLE_APPLY_BY_ID_REQUEST},
+        {type :GET_CIRCLE_APPLY_BY_ID_SUCCESS, payload: (action, state, res) => res.json()},
+        {type :GET_CIRCLE_APPLY_BY_ID_FAILURE}
       ]
     }
   }

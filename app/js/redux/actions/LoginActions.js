@@ -19,9 +19,9 @@ export function login(username, password) {
       method:'POST',
       body:loginFormData,
       types: [
-        {type :'LOGIN_REQUEST'},
-        {type :'LOGIN_SUCCESS', payload: (action, state, res) => res.json()},
-        {type :'LOGIN_FAILURE'}
+        {type :LOGIN_REQUEST},
+        {type :LOGIN_SUCCESS, payload: (action, state, res) => res.json()},
+        {type :LOGIN_FAILURE}
       ]
     }
   }
